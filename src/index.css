@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap');
+
+/* Law Firm Premium Design System - Wine & Gold Palette */
+
+@layer base {
+  :root {
+    /* Wine Dark Primary: #6a081d */
+    --background: 348 87% 8%;
+    --foreground: 40 20% 95%;
+
+    /* Cards/Sections with Wine Closed: #6a192a */
+    --card: 348 64% 12%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 348 64% 10%;
+    --popover-foreground: 40 20% 95%;
+
+    /* Primary: Elegant Gold #b47f4b */
+    --primary: 30 42% 50%;
+    --primary-foreground: 348 87% 8%;
+
+    /* Secondary: Wine Dark */
+    --secondary: 348 87% 15%;
+    --secondary-foreground: 40 20% 95%;
+
+    /* Muted */
+    --muted: 348 40% 18%;
+    --muted-foreground: 40 15% 70%;
+
+    /* Accent: Light Gold #b48567 */
+    --accent: 22 39% 55%;
+    --accent-foreground: 348 87% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 348 40% 20%;
+    --input: 348 40% 15%;
+    --ring: 30 42% 50%;
+
+    --radius: 0.5rem;
+
+    /* Wine variations */
+    --wine-dark: 348 87% 23%;
+    --wine-closed: 348 64% 26%;
+    --wine-deep: 348 87% 8%;
+    
+    /* Gold variations */
+    --gold-elegant: 30 42% 50%;
+    --gold-light: 22 39% 55%;
+    --gold-glow: 30 50% 60%;
+
+    /* Gradients */
+    --gradient-wine: linear-gradient(135deg, hsl(348 87% 23%), hsl(348 64% 12%));
+    --gradient-gold: linear-gradient(135deg, hsl(30 42% 50%), hsl(22 39% 55%));
+    --gradient-overlay: linear-gradient(180deg, hsla(348, 87%, 8%, 0.7), hsla(348, 87%, 8%, 0.95));
+
+    /* Shadows */
+    --shadow-elegant: 0 10px 40px -10px hsla(30, 42%, 50%, 0.3);
+    --shadow-wine: 0 20px 60px -15px hsla(348, 87%, 8%, 0.8);
+
+    /* Sidebar */
+    --sidebar-background: 348 87% 10%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 30 42% 50%;
+    --sidebar-primary-foreground: 348 87% 8%;
+    --sidebar-accent: 348 64% 18%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 348 40% 20%;
+    --sidebar-ring: 30 42% 50%;
+  }
+
+  .dark {
+    --background: 348 87% 6%;
+    --foreground: 40 20% 95%;
+    --card: 348 64% 10%;
+    --card-foreground: 40 20% 95%;
+    --popover: 348 64% 8%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 30 42% 50%;
+    --primary-foreground: 348 87% 8%;
+    --secondary: 348 87% 12%;
+    --secondary-foreground: 40 20% 95%;
+    --muted: 348 40% 15%;
+    --muted-foreground: 40 15% 65%;
+    --accent: 22 39% 55%;
+    --accent-foreground: 348 87% 8%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 40 20% 95%;
+    --border: 348 40% 18%;
+    --input: 348 40% 12%;
+    --ring: 30 42% 50%;
+    --sidebar-background: 348 87% 8%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 30 42% 50%;
+    --sidebar-primary-foreground: 348 87% 8%;
+    --sidebar-accent: 348 64% 15%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 348 40% 15%;
+    --sidebar-ring: 30 42% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-raleway antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .border-gold-glow {
+    @apply border-primary/50 shadow-[0_0_20px_hsla(30,42%,50%,0.3)];
+  }
+
+  .hover-gold-glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_hsla(30,42%,50%,0.4)];
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 md:py-28 px-4 md:px-8;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+@keyframes scrollLine {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-scroll-line {
+  animation: scrollLine 2s ease-in-out infinite;
+}

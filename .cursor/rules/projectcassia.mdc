@@ -1,0 +1,31 @@
+---
+This project is a modern frontend application using React, TypeScript, Tailwind CSS and a component-based architecture.
+
+Project conventions:
+- Organize code by feature and responsibility, not by file type.
+- Components must be small, reusable and visually consistent.
+- Prefer composition over inheritance.
+- Avoid prop drilling when state can be localized or managed with Zustand.
+
+Styling:
+- Use Tailwind CSS exclusively for styling.
+- Maintain spacing, hierarchy and visual breathing room.
+- Prioritize clean, professional, premium layouts.
+- Mobile-first approach is mandatory.
+
+UI:
+- Prefer shadcn/ui components when applicable.
+- Animations must be subtle and meaningful (Framer Motion).
+- Avoid visual clutter or unnecessary effects.
+
+Code standards:
+- Type everything properly.
+- Avoid any.
+- Keep components readable and predictable.
+- Do not refactor unless there is a clear gain.
+
+This project values professionalism, clarity, elegance and maintainability.
+
+alwaysApply: true
+---
+
