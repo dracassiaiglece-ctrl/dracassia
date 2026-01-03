@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GraduationCap, Award, Briefcase, ChevronLeft, ChevronRight } from "lucide-react";
 import nathaliaImg from "@/assets/Nathalia Costa.jpeg";
@@ -72,13 +72,40 @@ const TeamSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const autoPlayIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Minimum swipe distance (in px) to trigger slide change
   const minSwipeDistance = 50;
 
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % teamMembers.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
+  };
+
+  // Auto-play carousel
+  useEffect(() => {
+    if (isAutoPlaying) {
+      autoPlayIntervalRef.current = setInterval(() => {
+        nextSlide();
+      }, 5000); // Muda a cada 5 segundos
+    }
+
+    return () => {
+      if (autoPlayIntervalRef.current) {
+        clearInterval(autoPlayIntervalRef.current);
+      }
+    };
+  }, [isAutoPlaying, currentIndex]);
+
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
+    // Pausa o auto-play quando o usuário interage
+    setIsAutoPlaying(false);
   };
 
   const onTouchMove = (e: React.TouchEvent) => {
@@ -86,7 +113,11 @@ const TeamSection = () => {
   };
 
   const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
+    if (!touchStart || !touchEnd) {
+      // Retoma o auto-play após um tempo se não houver interação
+      setTimeout(() => setIsAutoPlaying(true), 3000);
+      return;
+    }
     
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
@@ -94,11 +125,14 @@ const TeamSection = () => {
     
     if (isLeftSwipe) {
       // Swipe left = next slide
-      setCurrentIndex((prev) => (prev + 1) % teamMembers.length);
+      nextSlide();
     } else if (isRightSwipe) {
       // Swipe right = previous slide
-      setCurrentIndex((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
+      prevSlide();
     }
+
+    // Retoma o auto-play após 5 segundos da interação
+    setTimeout(() => setIsAutoPlaying(true), 5000);
   };
 
   const containerVariants = {
@@ -122,17 +156,9 @@ const TeamSection = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: [0.4, 0, 0.2, 1] as const,
       },
     },
-  };
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % teamMembers.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
   };
 
   // Card component reutilizável
@@ -287,10 +313,11 @@ const TeamSection = () => {
         <div className="md:hidden relative">
           {/* Card atual com touch/swipe */}
           <div 
-            className="relative overflow-hidden touch-pan-y"
+            className="relative overflow-hidden"
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
+            style={{ touchAction: 'pan-y pinch-zoom' }}
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -310,7 +337,11 @@ const TeamSection = () => {
           <div className="flex items-center justify-center gap-4 mt-6">
             {/* Botão anterior */}
             <button
-              onClick={prevSlide}
+              onClick={() => {
+                prevSlide();
+                setIsAutoPlaying(false);
+                setTimeout(() => setIsAutoPlaying(true), 5000);
+              }}
               className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all duration-300"
               aria-label="Anterior"
             >
@@ -322,7 +353,11 @@ const TeamSection = () => {
               {teamMembers.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentIndex(index)}
+                  onClick={() => {
+                    setCurrentIndex(index);
+                    setIsAutoPlaying(false);
+                    setTimeout(() => setIsAutoPlaying(true), 5000);
+                  }}
                   className={`transition-all duration-300 ${
                     index === currentIndex
                       ? "w-6 h-2 bg-primary rounded-full"
@@ -335,7 +370,11 @@ const TeamSection = () => {
 
             {/* Botão próximo */}
             <button
-              onClick={nextSlide}
+              onClick={() => {
+                nextSlide();
+                setIsAutoPlaying(false);
+                setTimeout(() => setIsAutoPlaying(true), 5000);
+              }}
               className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all duration-300"
               aria-label="Próximo"
             >
