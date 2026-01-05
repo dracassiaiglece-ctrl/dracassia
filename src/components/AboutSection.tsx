@@ -1,5 +1,5 @@
 import { CheckCircle } from "lucide-react";
-import aboutSectionBg from "@/assets/aboutsection.png";
+import aboutSectionBg from "@/assets/aboutsection.webp";
 import aboutMobile from "@/assets/aboutmobile.jpg";
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
@@ -54,111 +54,100 @@ const AboutSection = () => {
     <section
       ref={sectionRef}
       id="sobre"
-      className="relative overflow-hidden w-full"
+      className="relative w-full"
     >
-      {/* Desktop: Layout com imagem e texto sobreposto */}
-      <div className="hidden md:block relative w-full">
-        <img
-          src={aboutSectionBg}
-          alt=""
-          className="w-full h-auto object-cover relative z-0"
-          style={{ display: "block" }}
-        />
-        
-        {/* Gradiente sobre a imagem: transparente até a linha branca, depois gradiente escuro para leitura */}
-        {/* Overlay esfumado no topo da imagem - forte apenas no topo para não cobrir a cabeça */}
-        <div 
-          className="absolute top-0 left-0 right-0 h-[200px] md:h-[250px] lg:h-[280px] z-10" 
-          style={{
-            background: 'linear-gradient(to bottom, #1a0a0f 0%, #1a0a0f 25%, rgba(26, 10, 15, 0.95) 40%, rgba(26, 10, 15, 0.8) 55%, rgba(26, 10, 15, 0.5) 70%, rgba(26, 10, 15, 0.25) 85%, transparent 100%)'
-          }}
-        />
-        
-        {/* Overlay esfumado no bottom da imagem - transição suave na parte inferior */}
-        <div 
-          className="absolute bottom-0 left-0 right-0 h-[200px] md:h-[250px] lg:h-[280px] z-10" 
-          style={{
-            background: 'linear-gradient(to top, #1a0a0f 0%, #1a0a0f 25%, rgba(26, 10, 15, 0.95) 40%, rgba(26, 10, 15, 0.8) 55%, rgba(26, 10, 15, 0.5) 70%, rgba(26, 10, 15, 0.25) 85%, transparent 100%)'
-          }}
-        />
-        
-        {/* Gradiente lateral: transparente até a linha branca, depois gradiente escuro para leitura */}
-        <div 
-          className="absolute inset-0 z-10" 
-          style={{
-            background: 'linear-gradient(to right, transparent 0%, transparent 30%, rgba(26, 10, 15, 0.2) 40%, rgba(26, 10, 15, 0.5) 50%, rgba(26, 10, 15, 0.75) 65%, rgba(26, 10, 15, 0.9) 80%, rgba(26, 10, 15, 0.95) 100%)'
-          }}
-        />
+      {/* Desktop: Layout de 2 colunas - Imagem à esquerda, Texto à direita */}
+      <div className="hidden lg:grid lg:grid-cols-2 w-full min-h-screen">
+        {/* Coluna Esquerda: Imagem em Box Estilizada */}
+        <div className="relative w-full h-full flex items-center justify-center p-3 lg:p-4 xl:p-6 bg-[#1a0a0f]">
+          <div className="relative w-full h-full max-w-none group flex items-center justify-center">
+            {/* Container principal da imagem */}
+            <div className="relative rounded-xl overflow-hidden shadow-2xl shadow-black/50 group-hover:shadow-primary/20 transition-all duration-300 transform group-hover:scale-[1.02] w-[95%] h-[85vh] max-h-[900px]">
+              {/* Borda interna dourada sutil */}
+              <div className="absolute inset-0 border border-primary/30 rounded-xl pointer-events-none z-20 group-hover:border-primary/50 transition-colors duration-300" />
+              
+              {/* Cantos decorativos */}
+              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/50 rounded-tl-xl z-20 opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/50 rounded-tr-xl z-20 opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/50 rounded-bl-xl z-20 opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/50 rounded-br-xl z-20 opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
+              
+              {/* Imagem */}
+              <img
+                src={aboutSectionBg}
+                alt="Dra. Cássia Iglece"
+                className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                style={{ display: "block" }}
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
 
-        {/* Conteúdo posicionado sobre a imagem e gradiente */}
-        <div className="absolute inset-0 flex items-center z-20">
-          <div className="w-full flex justify-end pr-8 lg:pr-16 xl:pr-24">
-            <div className="max-w-2xl lg:max-w-3xl py-12 lg:py-16">
-            {/* Content */}
-            <div ref={contentRef} className="relative">
-              <div className="mb-8">
-                <span className="text-sm text-primary font-semibold uppercase tracking-wider">
-                  Sobre a Advogada
-                </span>
-              </div>
+        {/* Coluna Direita: Conteúdo com fundo sólido */}
+        <div className="bg-[#1a0a0f] flex items-center py-4 lg:py-6 xl:py-8 px-5 lg:px-8 xl:px-10 min-h-screen">
+          <div ref={contentRef} className="w-full max-w-xl mx-auto">
+            <div className="mb-3 lg:mb-4">
+              <span className="text-xs lg:text-sm text-primary font-semibold uppercase tracking-wider">
+                Sobre a Advogada
+              </span>
+            </div>
 
-              <h2 className="text-5xl lg:text-6xl font-playfair font-bold text-foreground mb-8 leading-tight">
-                Dra. Cássia de Santana Iglece
-              </h2>
+            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-playfair font-bold text-foreground mb-4 lg:mb-5 leading-tight">
+              Dra. Cássia de Santana Iglece
+            </h2>
 
-              <div className="prose prose-lg max-w-none">
-                <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                  Cássia de Santana Iglece é advogada com atuação focada em Direito de
-                  Família e Sucessões, dedicada à condução de demandas familiares com técnica,
-                  sensibilidade e estratégia jurídica.
-                </p>
+            <div className="space-y-3 lg:space-y-4">
+              <p className="text-sm lg:text-base text-muted-foreground" style={{ lineHeight: '1.6' }}>
+                Cássia de Santana Iglece é advogada com atuação focada em <strong className="text-foreground/95">Direito de
+                Família e Sucessões</strong>, dedicada à condução de demandas familiares com técnica,
+                sensibilidade e estratégia jurídica.
+              </p>
 
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Formada pela Universidade Católica do Salvador (UCSAL), possui pós-graduação em
-                  Advocacia no Direito de Família e Sucessões e atualmente cursa MBA em Direito da
-                  Família e Planejamento Sucessório, com ênfase em soluções jurídicas preventivas,
-                  organização patrimonial e segurança jurídica nas relações familiares.
-                </p>
+              <p className="text-sm lg:text-base text-muted-foreground" style={{ lineHeight: '1.6' }}>
+                Formada pela Universidade Católica do Salvador (UCSAL), possui pós-graduação em
+                Advocacia no <strong className="text-foreground/95">Direito de Família e Sucessões</strong> e atualmente cursa MBA em Direito da
+                Família e Planejamento Sucessório, com ênfase em <strong className="text-foreground/95">soluções jurídicas preventivas</strong>,
+                organização patrimonial e segurança jurídica nas relações familiares.
+              </p>
 
-                <p className="text-muted-foreground mb-10 leading-relaxed">
-                  Integra ativamente a advocacia institucional, atuando como Conselheira Consultiva da
-                  OAB Jovem Bahia, o que reforça seu compromisso com a ética, o aprimoramento
-                  profissional contínuo e a advocacia responsável. Sua atuação é pautada pela análise técnica aprofundada, atendimento humanizado e
-                  construção de estratégias jurídicas personalizadas, sempre buscando soluções eficazes e
-                  juridicamente seguras para conflitos familiares.
-                </p>
-              </div>
+              <p className="text-sm lg:text-base text-muted-foreground" style={{ lineHeight: '1.6' }}>
+                Integra ativamente a advocacia institucional, atuando como Conselheira Consultiva da
+                OAB Jovem Bahia, o que reforça seu compromisso com a ética, o aprimoramento
+                profissional contínuo e a advocacia responsável. Sua atuação é pautada pela análise técnica aprofundada, <strong className="text-foreground/95">atendimento humanizado</strong> e
+                construção de estratégias jurídicas personalizadas, sempre buscando soluções eficazes e
+                juridicamente seguras para conflitos familiares.
+              </p>
+            </div>
 
-              <div className="space-y-4 mb-10">
-                {qualifications.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-4 pb-4 border-b border-border/30 last:border-0"
-                  >
-                    <CheckCircle className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-foreground/90 leading-relaxed text-base">{item}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="space-y-2 lg:space-y-3 mt-4 lg:mt-5 mb-4 lg:mb-5">
+              {qualifications.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-3 lg:gap-4 pb-2 lg:pb-3 border-b border-border/30 last:border-0"
+                >
+                  <CheckCircle className="w-5 h-5 lg:w-6 lg:h-6 text-primary mt-0.5 flex-shrink-0" />
+                  <span className="text-sm lg:text-base text-foreground/90 leading-relaxed">{item}</span>
+                </div>
+              ))}
+            </div>
 
-              <div className="pt-6 border-t border-border">
-                <div className="flex items-center gap-4">
-                  <div className="flex flex-col">
-                    <span className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Registro OAB</span>
-                    <span className="font-playfair text-2xl font-bold text-foreground">
-                      OAB/BA
-                    </span>
-                  </div>
+            <div className="pt-4 lg:pt-5 border-t border-border">
+              <div className="flex items-center gap-4">
+                <div className="flex flex-col">
+                  <span className="text-[10px] lg:text-xs text-muted-foreground uppercase tracking-wider mb-1">Registro OAB</span>
+                  <span className="font-playfair text-xl lg:text-2xl font-bold text-foreground">
+                    OAB/BA
+                  </span>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      </div>
 
       {/* Mobile: Layout integrado similar ao desktop - imagem com texto sobreposto */}
-      <div className="md:hidden relative bg-[#1a0a0f]">
+      <div className="lg:hidden relative bg-[#1a0a0f]">
         {/* Container principal com imagem de fundo */}
         <div className="relative w-full">
           {/* Imagem de fundo com efeitos premium */}
@@ -236,23 +225,24 @@ const AboutSection = () => {
                 </h2>
 
                 <div className="space-y-4 mb-6">
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Cássia de Santana Iglece é advogada com atuação focada em Direito de
-                    Família e Sucessões, dedicada à condução de demandas familiares com técnica,
+                  <p className="text-sm text-muted-foreground" style={{ lineHeight: '1.7' }}>
+                    Cássia de Santana Iglece é advogada com atuação focada em <strong className="text-foreground/95">Direito de
+                    Família e Sucessões</strong>, dedicada à condução de demandas familiares com técnica,
                     sensibilidade e estratégia jurídica.
                   </p>
 
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground" style={{ lineHeight: '1.7' }}>
                     Formada pela Universidade Católica do Salvador (UCSAL), possui pós-graduação em
-                    Advocacia no Direito de Família e Sucessões e atualmente cursa MBA em Direito da
-                    Família e Planejamento Sucessório, com ênfase em soluções jurídicas preventivas,
+                    Advocacia no <strong className="text-foreground/95">Direito de Família e Sucessões</strong> e atualmente cursa MBA em Direito da
+                    Família e Planejamento Sucessório, com ênfase em <strong className="text-foreground/95">soluções jurídicas preventivas</strong>,
                     organização patrimonial e segurança jurídica nas relações familiares.
                   </p>
 
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground" style={{ lineHeight: '1.7' }}>
                     Integra ativamente a advocacia institucional, atuando como Conselheira Consultiva da
                     OAB Jovem Bahia, o que reforça seu compromisso com a ética, o aprimoramento
-                    profissional contínuo e a advocacia responsável.
+                    profissional contínuo e a advocacia responsável. Sua atuação é pautada pela análise técnica aprofundada, <strong className="text-foreground/95">atendimento humanizado</strong> e
+                    construção de estratégias jurídicas personalizadas.
                   </p>
                 </div>
 

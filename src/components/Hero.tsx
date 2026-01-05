@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { MessageCircle, ChevronDown } from "lucide-react";
 import heroBg from "@/assets/hero-bg.webp";
-import draCassia from "@/assets/Dra. Cassia 2.png";
+import draCassia from "@/assets/Dra.-Cassia-2.webp";
 import draCassiaWebp from "@/assets/Dra. Cassia.webp";
 import pagina1 from "@/assets/pagina 1.png";
 import pagina2 from "@/assets/pagina 2.png";

@@ -239,3 +239,6 @@ export const getServiceBySlug = (slug: string): Service | undefined => {
   return services.find((service) => service.slug === slug);
 };
 
+
+
+
