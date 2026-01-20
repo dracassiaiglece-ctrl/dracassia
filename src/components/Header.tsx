@@ -23,6 +23,11 @@ const Header = () => {
     } else {
       document.body.style.overflow = "";
     }
+    window.dispatchEvent(
+      new CustomEvent("mobile-menu-toggle", {
+        detail: { isOpen: isMobileMenuOpen },
+      })
+    );
     return () => {
       document.body.style.overflow = "";
     };
@@ -75,20 +80,20 @@ const Header = () => {
         isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-10 opacity-100"
       }`}>
         <div className="h-full bg-[#0d0508]/90 backdrop-blur-sm border-b border-primary/10">
-          <div className="container-custom h-full px-6 md:px-8 flex items-center justify-end gap-8">
+          <div className="container-custom h-full px-6 md:px-8 flex items-center justify-center md:justify-end gap-6 md:gap-8">
             <a 
               href="tel:+5571993523075" 
-              className="flex items-center gap-2 text-xs text-white/50 hover:text-primary transition-colors group"
+              className="flex items-center gap-2 text-[11px] sm:text-xs text-white/50 hover:text-primary transition-colors group whitespace-nowrap"
             >
               <Phone className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-              <span className="hidden sm:inline">(71) 9 9352-3075</span>
+              <span>(71) 9 9352-3075</span>
             </a>
             <a 
-              href="mailto:contato@cassiaiglece.adv.br" 
-              className="flex items-center gap-2 text-xs text-white/50 hover:text-primary transition-colors group"
+              href="mailto:cassiaiglece.adv@gmail.com" 
+              className="hidden md:flex items-center gap-2 text-xs text-white/50 hover:text-primary transition-colors group min-w-0"
             >
               <Mail className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-              <span className="hidden sm:inline">contato@cassiaiglece.adv.br</span>
+              <span className="truncate max-w-[220px] lg:max-w-none">cassiaiglece.adv@gmail.com</span>
             </a>
           </div>
         </div>
@@ -189,7 +194,7 @@ const Header = () => {
         }`}
       >
         <div 
-          className={`absolute inset-0 bg-[#1a0a0f]/98 backdrop-blur-xl transition-opacity duration-500 ${
+          className={`absolute inset-0 bg-black/95 backdrop-blur-xl transition-opacity duration-500 ${
             isMobileMenuOpen ? "opacity-100" : "opacity-0"
           }`}
           onClick={() => setIsMobileMenuOpen(false)}
@@ -228,7 +233,7 @@ const Header = () => {
               href="https://wa.me/5571993523075"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-[#d4a574] text-[#1a0a0f] px-8 py-4 rounded-full font-semibold"
+              className="inline-flex items-center gap-4 bg-gradient-to-r from-primary to-[#d4a574] text-[#1a0a0f] px-8 py-4 rounded-full font-semibold"
             >
               <MessageCircle className="w-5 h-5" />
               <span>Falar com Especialista</span>
@@ -241,10 +246,10 @@ const Header = () => {
             }`}
             style={{ transitionDelay: isMobileMenuOpen ? `${(navItems.length + 1) * 80}ms` : "0ms" }}
           >
-            <a href="mailto:contato@cassiaiglece.adv.br" className="text-xs text-white/40 hover:text-primary transition-colors">
-              contato@cassiaiglece.adv.br
+            <a href="mailto:cassiaiglece.adv@gmail.com" className="text-xs text-white font-medium drop-shadow-md hover:text-primary transition-colors">
+              cassiaiglece.adv@gmail.com
             </a>
-            <a href="tel:+5571993523075" className="text-xs text-white/40 hover:text-primary transition-colors">
+            <a href="tel:+5571993523075" className="text-xs text-white font-medium drop-shadow-md hover:text-primary transition-colors">
               (71) 9 9352-3075
             </a>
           </div>

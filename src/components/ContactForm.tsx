@@ -23,7 +23,7 @@ const ContactForm = () => {
     const body = encodeURIComponent(emailBody);
     
     // Tentar abrir o app de email
-    const mailtoLink = `mailto:contato@cassiaiglece.adv.br?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:cassiaiglece.adv@gmail.com?subject=${subject}&body=${body}`;
     
     // Criar um link temporário para tentar abrir o email
     const link = document.createElement('a');
@@ -117,13 +117,11 @@ const ContactForm = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6"
+              className="space-y-8"
             >
               {/* Telefone/WhatsApp */}
-              <div className="flex items-start gap-4 p-5 bg-white/[0.02] border border-white/10 rounded-2xl hover:border-primary/30 transition-all">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-primary" />
-                </div>
+              <div className="flex items-start gap-4">
+                <Phone className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                 <div className="flex-1">
                   <div className="font-semibold text-foreground mb-1">
                     Telefone / WhatsApp
@@ -138,28 +136,24 @@ const ContactForm = () => {
               </div>
 
               {/* E-mail */}
-              <div className="flex items-start gap-4 p-5 bg-white/[0.02] border border-white/10 rounded-2xl hover:border-primary/30 transition-all">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-primary" />
-                </div>
+              <div className="flex items-start gap-4">
+                <Mail className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                 <div className="flex-1">
                   <div className="font-semibold text-foreground mb-1">
                     E-mail
                   </div>
                   <a
-                    href="mailto:contato@cassiaiglece.adv.br"
+                    href="mailto:cassiaiglece.adv@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors break-all"
                   >
-                    contato@cassiaiglece.adv.br
+                    cassiaiglece.adv@gmail.com
                   </a>
                 </div>
               </div>
 
               {/* Horário */}
-              <div className="flex items-start gap-4 p-5 bg-white/[0.02] border border-white/10 rounded-2xl hover:border-primary/30 transition-all">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-6 h-6 text-primary" />
-                </div>
+              <div className="flex items-start gap-4">
+                <Clock className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                 <div className="flex-1">
                   <div className="font-semibold text-foreground mb-1">
                     Horário de Atendimento
@@ -190,7 +184,7 @@ const ContactForm = () => {
               {/* Botão WhatsApp Direto */}
               <button
                 onClick={handleWhatsAppDirect}
-                className="w-full group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#25D366] to-[#20BA5A] text-white font-semibold text-sm md:text-base tracking-wide px-6 py-4 rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                className="w-full group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-[#d4a574] text-[#1a0a0f] font-semibold text-sm md:text-base tracking-wide px-6 py-4 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(200,160,120,0.4)] hover:-translate-y-0.5"
               >
                 <MessageCircle className="w-5 h-5" strokeWidth={2.5} />
                 <span>Falar pelo WhatsApp</span>

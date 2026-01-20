@@ -1,4 +1,4 @@
-import { Scale, Users, Building2, FileText } from "lucide-react";
+import { Scale, Users, Building2, FileText, Check } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -86,7 +86,6 @@ const HonorariosSection = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
       },
     },
   };
@@ -131,7 +130,7 @@ const HonorariosSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              Proposta de
+              Escopo de
             </motion.span>{" "}
             <motion.span 
               className="inline-block text-primary"
@@ -140,7 +139,7 @@ const HonorariosSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             >
-              Honorários
+              Atuação
             </motion.span>
           </h2>
           <motion.p 
@@ -176,10 +175,10 @@ const HonorariosSection = () => {
                 <div className="relative h-full bg-[#1a0a0f] border border-white/10 rounded-xl p-8 md:p-10 transition-all duration-500 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 overflow-hidden group/card">
                   {/* Número da área com animação de hover */}
                   <div className="absolute top-6 right-6 transition-all duration-500 group-hover/card:scale-110 group-hover/card:-translate-y-1">
-                    <div className="text-5xl md:text-6xl font-playfair font-bold text-primary/10 group-hover/card:text-primary/100 transition-all duration-500 relative">
+                    <div className="text-5xl md:text-6xl font-playfair font-bold text-primary/10 group-hover/card:text-primary/10 transition-all duration-500 relative">
                       {area.number}
                       {/* Brilho sutil no hover */}
-                      <div className="absolute inset-0 text-primary/0 group-hover/card:text-primary/20 blur-xl transition-all duration-500">
+                      <div className="absolute inset-0 text-primary/0 group-hover/card:text-primary/10 blur-xl transition-all duration-500">
                         {area.number}
                       </div>
                     </div>
@@ -215,21 +214,19 @@ const HonorariosSection = () => {
                     </p>
 
                     {/* Lista de Serviços */}
-                    <div className="space-y-3 pt-6 border-t border-white/10 group-hover/card:border-primary/20 transition-colors duration-500">
+                    <ul className="list-none space-y-3 pt-6 border-t border-white/10 group-hover/card:border-primary/20 transition-colors duration-500">
                       {area.services.map((service, serviceIndex) => (
-                        <div
+                        <li
                           key={serviceIndex}
-                          className="flex items-start gap-3 text-muted-foreground group/service group-hover/card:text-foreground/80 transition-colors duration-500"
+                          className="flex items-start text-muted-foreground group/service group-hover/card:text-foreground/80 transition-colors duration-500"
                         >
-                          <div className="flex-shrink-0 mt-2.5">
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary/60 group-hover/service:bg-primary group-hover/service:scale-150 transition-all duration-300" />
-                          </div>
+                          <Check className="w-4 h-4 text-primary mt-1 mr-3 flex-shrink-0" strokeWidth={2.5} />
                           <span className="leading-relaxed text-sm md:text-base group-hover/service:text-foreground transition-colors duration-300">
                             {service}
                           </span>
-                        </div>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </div>
               </motion.div>

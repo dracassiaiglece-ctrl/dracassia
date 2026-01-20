@@ -52,42 +52,32 @@ const CTASection = () => {
           </p>
 
           {/* Cards de contato */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10 md:mb-12 max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-14 md:mb-16 max-w-2xl mx-auto">
             {/* WhatsApp */}
-            <a
-              href="https://wa.me/5571993523075"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative flex items-center gap-4 p-5 md:p-6 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-2xl transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1"
-            >
-              <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+            <div className="relative flex items-center gap-4 p-5 md:p-6 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
                 <MessageCircle className="w-6 h-6 text-primary" />
               </div>
               <div className="flex-1">
                 <span className="block text-xs text-muted-foreground mb-1">WhatsApp</span>
-                <span className="block text-base md:text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                <span className="block text-lg font-medium text-foreground">
                   (71) 9 9352-3075
                 </span>
               </div>
-              <ArrowRight className="w-5 h-5 text-primary/50 group-hover:text-primary group-hover:translate-x-1 transition-all" />
-            </a>
+            </div>
 
             {/* E-mail */}
-            <a
-              href="mailto:contato@cassiaiglece.adv.br"
-              className="group relative flex items-center gap-4 p-5 md:p-6 bg-white/[0.02] border border-white/10 rounded-2xl transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1"
-            >
-              <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                <Mail className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
+            <div className="relative flex items-center gap-4 p-5 md:p-6 bg-white/[0.02] border border-white/10 rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center">
+                <Mail className="w-6 h-6 text-muted-foreground" />
               </div>
               <div className="flex-1">
                 <span className="block text-xs text-muted-foreground mb-1">E-mail</span>
-                <span className="block text-sm md:text-base font-medium text-foreground/80 group-hover:text-primary transition-colors">
-                  contato@cassiaiglece.adv.br
+                <span className="block text-lg font-medium text-foreground/80">
+                  cassiaiglece.adv@gmail.com
                 </span>
               </div>
-              <ArrowRight className="w-5 h-5 text-white/20 group-hover:text-primary group-hover:translate-x-1 transition-all" />
-            </a>
+            </div>
           </div>
 
           {/* CTA Principal */}
@@ -106,7 +96,7 @@ const CTASection = () => {
 
               <a
                 href="tel:+5571993523075"
-                className="group relative inline-flex items-center justify-center gap-3 bg-white/[0.05] border border-white/20 hover:border-primary/40 text-foreground font-semibold text-sm md:text-base tracking-wide px-8 md:px-10 py-4 md:py-5 rounded-full transition-all duration-300 hover:bg-white/[0.08] hover:-translate-y-0.5"
+                className="group relative inline-flex items-center justify-center gap-3 bg-transparent border border-white/25 hover:border-primary/40 text-foreground font-semibold text-sm md:text-base tracking-wide px-8 md:px-10 py-4 md:py-5 rounded-full transition-all duration-300 hover:bg-white/10"
               >
                 <Phone className="w-5 h-5" strokeWidth={2.5} />
                 <span>Ligar Agora</span>

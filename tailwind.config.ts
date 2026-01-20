@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -57,6 +58,7 @@ export default {
           deep: "hsl(var(--wine-deep))",
         },
         gold: {
+          400: "hsl(var(--gold-elegant))",
           elegant: "hsl(var(--gold-elegant))",
           light: "hsl(var(--gold-light))",
           glow: "hsl(var(--gold-glow))",
@@ -123,5 +125,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

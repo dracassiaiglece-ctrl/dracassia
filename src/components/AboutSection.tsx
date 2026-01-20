@@ -54,23 +54,23 @@ const AboutSection = () => {
     <section
       ref={sectionRef}
       id="sobre"
-      className="relative w-full"
+      className="relative w-full bg-[#1a0a0f]"
     >
       {/* Desktop: Layout de 2 colunas - Imagem à esquerda, Texto à direita */}
-      <div className="hidden lg:grid lg:grid-cols-2 w-full min-h-screen">
+      <div className="hidden lg:grid lg:grid-cols-2 gap-12 xl:gap-16 w-full min-h-screen">
         {/* Coluna Esquerda: Imagem em Box Estilizada */}
         <div className="relative w-full h-full flex items-center justify-center p-3 lg:p-4 xl:p-6 bg-[#1a0a0f]">
           <div className="relative w-full h-full max-w-none group flex items-center justify-center">
             {/* Container principal da imagem */}
-            <div className="relative rounded-xl overflow-hidden shadow-2xl shadow-black/50 group-hover:shadow-primary/20 transition-all duration-300 transform group-hover:scale-[1.02] w-[95%] h-[85vh] max-h-[900px]">
+            <div className="relative rounded-xl overflow-hidden border border-primary/20 shadow-[0_20px_50px_rgba(88,28,40,0.35)] transition-all duration-300 w-[95%] h-[85vh] max-h-[900px]">
               {/* Borda interna dourada sutil */}
-              <div className="absolute inset-0 border border-primary/30 rounded-xl pointer-events-none z-20 group-hover:border-primary/50 transition-colors duration-300" />
+              <div className="absolute inset-0 border border-primary/15 rounded-xl pointer-events-none z-20" />
               
               {/* Cantos decorativos */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/50 rounded-tl-xl z-20 opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/50 rounded-tr-xl z-20 opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/50 rounded-bl-xl z-20 opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/50 rounded-br-xl z-20 opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/35 rounded-tl-xl z-20 opacity-40" />
+              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/35 rounded-tr-xl z-20 opacity-40" />
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/35 rounded-bl-xl z-20 opacity-40" />
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/35 rounded-br-xl z-20 opacity-40" />
               
               {/* Imagem */}
               <img
@@ -87,31 +87,31 @@ const AboutSection = () => {
         {/* Coluna Direita: Conteúdo com fundo sólido */}
         <div className="bg-[#1a0a0f] flex items-center py-4 lg:py-6 xl:py-8 px-5 lg:px-8 xl:px-10 min-h-screen">
           <div ref={contentRef} className="w-full max-w-xl mx-auto">
-            <div className="mb-3 lg:mb-4">
+            <div className="mb-4 lg:mb-6">
               <span className="text-xs lg:text-sm text-primary font-semibold uppercase tracking-wider">
                 Sobre a Advogada
               </span>
             </div>
 
-            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-playfair font-bold text-foreground mb-4 lg:mb-5 leading-tight">
+            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-playfair font-bold text-foreground mb-6 lg:mb-7 leading-tight">
               Dra. Cássia de Santana Iglece
             </h2>
 
-            <div className="space-y-3 lg:space-y-4">
-              <p className="text-sm lg:text-base text-muted-foreground" style={{ lineHeight: '1.6' }}>
+            <div className="space-y-4 lg:space-y-5">
+              <p className="text-sm lg:text-base text-muted-foreground leading-relaxed lg:leading-loose">
                 Cássia de Santana Iglece é advogada com atuação focada em <strong className="text-foreground/95">Direito de
                 Família e Sucessões</strong>, dedicada à condução de demandas familiares com técnica,
                 sensibilidade e estratégia jurídica.
               </p>
 
-              <p className="text-sm lg:text-base text-muted-foreground" style={{ lineHeight: '1.6' }}>
+              <p className="text-sm lg:text-base text-muted-foreground leading-relaxed lg:leading-loose">
                 Formada pela Universidade Católica do Salvador (UCSAL), possui pós-graduação em
                 Advocacia no <strong className="text-foreground/95">Direito de Família e Sucessões</strong> e atualmente cursa MBA em Direito da
                 Família e Planejamento Sucessório, com ênfase em <strong className="text-foreground/95">soluções jurídicas preventivas</strong>,
                 organização patrimonial e segurança jurídica nas relações familiares.
               </p>
 
-              <p className="text-sm lg:text-base text-muted-foreground" style={{ lineHeight: '1.6' }}>
+              <p className="text-sm lg:text-base text-muted-foreground leading-relaxed lg:leading-loose">
                 Integra ativamente a advocacia institucional, atuando como Conselheira Consultiva da
                 OAB Jovem Bahia, o que reforça seu compromisso com a ética, o aprimoramento
                 profissional contínuo e a advocacia responsável. Sua atuação é pautada pela análise técnica aprofundada, <strong className="text-foreground/95">atendimento humanizado</strong> e

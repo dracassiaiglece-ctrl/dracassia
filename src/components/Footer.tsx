@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, MessageCircle } from "lucide-react";
 import Logo from "./Logo";
 import { useRef, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -110,7 +110,7 @@ const Footer = () => {
                         }
                       }
                     }}
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="inline-flex text-muted-foreground hover:text-gold-400 hover:translate-x-1 transition-all duration-300"
                   >
                     {link.label}
                   </a>
@@ -137,10 +137,10 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-primary mt-0.5" />
                 <a
-                  href="mailto:contato@cassiaiglece.adv.br"
+                  href="mailto:cassiaiglece.adv@gmail.com"
                   className="text-muted-foreground hover:text-primary transition-colors break-all"
                 >
-                  contato@cassiaiglece.adv.br
+                  cassiaiglece.adv@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -150,6 +150,27 @@ const Footer = () => {
                 </span>
               </li>
             </ul>
+
+            <div className="flex items-center gap-4 mt-6">
+              <a
+                href="https://www.instagram.com/cassiaigleceadv_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-white/70 hover:text-gold-400 transition-colors duration-300"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://wa.me/5571993523075"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="text-white/70 hover:text-gold-400 transition-colors duration-300"
+              >
+                <MessageCircle className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -167,9 +188,9 @@ const Footer = () => {
                 href="https://www.welziinho.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors"
+                className="text-primary hover:text-white transition-colors"
               >
-                www.welziinho.com
+                Wesley Sacramento
               </a>
             </p>
           </div>

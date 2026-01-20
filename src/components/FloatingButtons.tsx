@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const FloatingButtons = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,6 +13,16 @@ const FloatingButtons = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handler = (event: Event) => {
+      const { detail } = event as CustomEvent<{ isOpen: boolean }>;
+      setIsMobileMenuOpen(Boolean(detail?.isOpen));
+    };
+
+    window.addEventListener("mobile-menu-toggle", handler);
+    return () => window.removeEventListener("mobile-menu-toggle", handler);
   }, []);
 
   const scrollToTop = () => {
@@ -32,31 +43,34 @@ const FloatingButtons = () => {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
-      {/* Botão WhatsApp - sempre visível */}
-      <motion.button
-        onClick={openWhatsApp}
-        className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group relative overflow-hidden"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-      >
-        <MessageCircle className="w-6 h-6" strokeWidth={2.5} />
-        {/* Efeito de pulso */}
-        <motion.div
-          className="absolute inset-0 rounded-full bg-[#25D366]"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.5, 0, 0.5],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </motion.button>
+      <AnimatePresence>
+        {!isMobileMenuOpen && (
+          <motion.button
+            onClick={openWhatsApp}
+            className="w-14 h-14 rounded-full bg-gold-400 hover:bg-gold-400/90 text-[#1a0a0f] shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group relative overflow-hidden"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.2 }}
+          >
+            <MessageCircle className="w-6 h-6" strokeWidth={2.5} />
+            <motion.div
+              className="absolute inset-0 rounded-full bg-gold-400"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.5, 0, 0.5],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          </motion.button>
+        )}
+      </AnimatePresence>
 
       {/* Botão Voltar ao Topo - aparece ao rolar */}
       <AnimatePresence>
@@ -80,6 +94,10 @@ const FloatingButtons = () => {
 };
 
 export default FloatingButtons;
+
+
+
+
 
 
 

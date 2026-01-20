@@ -1,6 +1,6 @@
-import { useRef, useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { GraduationCap, Award, Briefcase, ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef } from "react";
+import { motion } from "framer-motion";
+import { GraduationCap, Award, Briefcase } from "lucide-react";
 import nathaliaImg from "@/assets/Nathalia Costa.jpeg";
 import gloriaImg from "@/assets/Gloria Almeida.jpeg";
 import uineImg from "@/assets/Uine Santana.jpeg";
@@ -69,71 +69,6 @@ const teamMembers: TeamMember[] = [
 
 const TeamSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const autoPlayIntervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Minimum swipe distance (in px) to trigger slide change
-  const minSwipeDistance = 50;
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % teamMembers.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + teamMembers.length) % teamMembers.length);
-  };
-
-  // Auto-play carousel
-  useEffect(() => {
-    if (isAutoPlaying) {
-      autoPlayIntervalRef.current = setInterval(() => {
-        nextSlide();
-      }, 5000); // Muda a cada 5 segundos
-    }
-
-    return () => {
-      if (autoPlayIntervalRef.current) {
-        clearInterval(autoPlayIntervalRef.current);
-      }
-    };
-  }, [isAutoPlaying, currentIndex]);
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-    // Pausa o auto-play quando o usuário interage
-    setIsAutoPlaying(false);
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) {
-      // Retoma o auto-play após um tempo se não houver interação
-      setTimeout(() => setIsAutoPlaying(true), 3000);
-      return;
-    }
-    
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-    
-    if (isLeftSwipe) {
-      // Swipe left = next slide
-      nextSlide();
-    } else if (isRightSwipe) {
-      // Swipe right = previous slide
-      prevSlide();
-    }
-
-    // Retoma o auto-play após 5 segundos da interação
-    setTimeout(() => setIsAutoPlaying(true), 5000);
-  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -162,17 +97,17 @@ const TeamSection = () => {
   };
 
   // Card component reutilizável
-  const TeamCard = ({ member, index }: { member: TeamMember; index: number }) => (
+  const TeamCard = ({ member }: { member: TeamMember }) => (
     <div className="relative h-full bg-gradient-to-b from-[#1a0a0f] to-[#150810] border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 group/card flex flex-col">
       {/* Foto */}
       <div className="relative aspect-[3/4] min-h-[280px] sm:min-h-[320px] md:min-h-[300px] lg:min-h-[320px] overflow-hidden">
         <img
           src={member.image}
           alt={member.name}
-          className="w-full h-full object-cover object-[center_20%] group-hover/card:scale-105 transition-transform duration-700"
+          className="w-full h-full object-cover object-[center_20%] brightness-90 saturate-75 group-hover/card:brightness-110 group-hover/card:saturate-100 group-hover/card:scale-105 transition-[transform,filter] duration-700"
         />
         {/* Overlay gradiente mais suave */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1a0a0f] via-[#1a0a0f]/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#150810] via-[#1a0a0f]/15 to-transparent" />
         
         {/* Badge de áreas no canto */}
         <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
@@ -225,22 +160,6 @@ const TeamSection = () => {
             </div>
           </div>
         )}
-
-        {/* Áreas de atuação extras */}
-        {member.extraAreas && member.extraAreas.length > 0 && (
-          <div className="pt-3 mt-3 border-t border-white/5">
-            <div className="flex flex-wrap gap-1.5">
-              {member.extraAreas.map((area, areaIndex) => (
-                <span
-                  key={areaIndex}
-                  className="px-2 py-0.5 text-[10px] bg-white/5 border border-white/10 rounded text-muted-foreground/70"
-                >
-                  {area}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Linha decorativa inferior */}
@@ -290,13 +209,13 @@ const TeamSection = () => {
           </p>
         </motion.div>
 
-        {/* Desktop: Grid 4 colunas */}
+        {/* Grid responsivo */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto"
         >
           {teamMembers.map((member, index) => (
             <motion.div
@@ -304,97 +223,13 @@ const TeamSection = () => {
               variants={cardVariants}
               className="h-full"
             >
-              <TeamCard member={member} index={index} />
+              <TeamCard member={member} />
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Mobile: Carrossel com suporte a swipe */}
-        <div className="md:hidden relative">
-          {/* Card atual com touch/swipe */}
-          <div 
-            className="relative overflow-hidden"
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
-            style={{ touchAction: 'pan-y pinch-zoom' }}
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="px-2"
-              >
-                <TeamCard member={teamMembers[currentIndex]} index={currentIndex} />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Controles do carrossel */}
-          <div className="flex items-center justify-center gap-4 mt-6">
-            {/* Botão anterior */}
-            <button
-              onClick={() => {
-                prevSlide();
-                setIsAutoPlaying(false);
-                setTimeout(() => setIsAutoPlaying(true), 5000);
-              }}
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all duration-300"
-              aria-label="Anterior"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-
-            {/* Indicadores */}
-            <div className="flex items-center gap-2">
-              {teamMembers.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setCurrentIndex(index);
-                    setIsAutoPlaying(false);
-                    setTimeout(() => setIsAutoPlaying(true), 5000);
-                  }}
-                  className={`transition-all duration-300 ${
-                    index === currentIndex
-                      ? "w-6 h-2 bg-primary rounded-full"
-                      : "w-2 h-2 bg-white/20 hover:bg-white/40 rounded-full"
-                  }`}
-                  aria-label={`Ir para slide ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            {/* Botão próximo */}
-            <button
-              onClick={() => {
-                nextSlide();
-                setIsAutoPlaying(false);
-                setTimeout(() => setIsAutoPlaying(true), 5000);
-              }}
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all duration-300"
-              aria-label="Próximo"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* Contador */}
-          <div className="text-center mt-4">
-            <span className="text-xs text-muted-foreground">
-              <span className="text-primary font-semibold">{currentIndex + 1}</span>
-              <span className="mx-1">/</span>
-              <span>{teamMembers.length}</span>
-            </span>
-          </div>
-        </div>
       </div>
     </section>
   );
 };
 
 export default TeamSection;
-

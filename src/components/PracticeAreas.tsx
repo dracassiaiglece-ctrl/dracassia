@@ -40,7 +40,6 @@ const PracticeAreas = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
       },
     },
   };
@@ -126,44 +125,43 @@ const PracticeAreas = () => {
                 className="group relative"
               >
                 {/* Card principal - minimalista e elegante */}
-                <div className="relative h-full bg-[#1a0a0f] border border-white/10 rounded-xl p-8 md:p-10 transition-all duration-500 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 overflow-hidden group/card flex flex-col">
+                <div className="relative h-full bg-[#1a0a0f] border border-white/10 rounded-xl p-8 md:p-10 transition-all duration-500 hover:border-primary/40 hover:bg-white/5 hover:-translate-y-1 overflow-hidden group/card flex flex-col justify-between">
                   {/* Ícone com animação no hover */}
                   <div className="flex-shrink-0 mb-6 p-3 rounded-lg bg-primary/10 border border-primary/20 group-hover/card:bg-primary/20 group-hover/card:border-primary/40 group-hover/card:scale-110 transition-all duration-500 w-fit">
                     <Icon className="w-6 h-6 text-primary group-hover/card:text-primary transition-colors duration-500" strokeWidth={2} />
                   </div>
 
-                  {/* Título */}
-                  <h3 className="text-xl md:text-2xl font-playfair font-bold text-foreground mb-4 group-hover/card:text-primary transition-colors duration-500 leading-tight flex-shrink-0">
-                    {service.title}
-                  </h3>
+                  <div className="flex flex-col flex-grow">
+                    {/* Título */}
+                    <h3 className="text-xl md:text-2xl font-playfair font-bold text-foreground mb-4 group-hover/card:text-primary transition-colors duration-500 leading-tight">
+                      {service.title}
+                    </h3>
 
-                  {/* Descrição - cresce para empurrar o botão para baixo */}
-                  <p className="text-muted-foreground leading-relaxed text-sm md:text-base mb-6 flex-grow">
-                    {service.shortDescription}
-                  </p>
+                    {/* Descrição */}
+                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base mb-4">
+                      {service.shortDescription}
+                    </p>
 
-                  {/* Botões */}
-                  <div className="flex flex-col gap-3 mt-auto flex-shrink-0">
                     {/* Link Saiba Mais */}
                     <Link
                       to={`/servicos/${service.slug}`}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-white/[0.05] border border-white/20 hover:border-primary/40 text-foreground font-medium text-sm transition-all duration-300 group/link"
+                      className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:text-white hover:underline underline-offset-4 decoration-primary/60 transition-colors w-fit mt-auto mb-6"
                     >
                       <span>Saiba mais</span>
-                      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                      <span aria-hidden="true">→</span>
                     </Link>
-
-                    {/* Botão WhatsApp */}
-                    <motion.button
-                      onClick={() => openWhatsApp(service.title)}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/20 group/btn border border-primary/20"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <MessageCircle className="w-5 h-5 group-hover/btn:scale-110 transition-transform duration-300" strokeWidth={2} />
-                      <span>Solicitar atendimento</span>
-                    </motion.button>
                   </div>
+
+                  {/* Botão WhatsApp */}
+                  <motion.button
+                    onClick={() => openWhatsApp(service.title)}
+                    className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/20 group/btn border border-primary/20"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <MessageCircle className="w-5 h-5 group-hover/btn:scale-110 transition-transform duration-300" strokeWidth={2} />
+                    <span>Solicitar atendimento</span>
+                  </motion.button>
 
                   {/* Linha decorativa no hover */}
                   <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/0 to-transparent group-hover/card:via-primary/40 transition-all duration-500" />

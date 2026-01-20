@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { MessageCircle, ChevronDown } from "lucide-react";
-import heroBg from "@/assets/hero-bg.webp";
+import heroBg from "@/assets/hero-bg2.JPEG";
 import draCassia from "@/assets/Dra.-Cassia-2.webp";
 import draCassiaWebp from "@/assets/Dra. Cassia.webp";
 import pagina1 from "@/assets/pagina 1.png";
@@ -158,10 +158,9 @@ const Hero = () => {
           <img
             src={pagina1}
             alt=""
-            className="max-w-[250px] w-auto h-auto object-contain"
+            className="max-w-[250px] w-auto h-auto object-contain opacity-60"
             style={{
               filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.4))",
-              opacity: 0.85,
               transition: "transform 0.1s ease-out"
             }}
           />
@@ -175,10 +174,9 @@ const Hero = () => {
           <img
             src={pagina1}
             alt=""
-            className="max-w-[350px] w-auto h-auto object-contain"
+            className="max-w-[350px] w-auto h-auto object-contain opacity-60"
             style={{
               filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.4))",
-              opacity: 0.85,
               transition: "transform 0.1s ease-out"
             }}
           />
@@ -234,7 +232,7 @@ const Hero = () => {
               {/* Badge */}
               <div className="flex items-center justify-center gap-3 mb-3">
                 <div className="h-px w-8 bg-primary/60" />
-                <span className="text-primary/90 text-[10px] font-medium tracking-[0.25em] uppercase">
+                <span className="text-[#FCE7A0] text-[10px] font-medium tracking-[0.25em] uppercase">
                   Advocacia & Consultoria Jurídica
                 </span>
               </div>
@@ -285,7 +283,7 @@ const Hero = () => {
               {/* Badge */}
               <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-10">
                 <div className="h-px w-8 md:w-10 bg-primary/60" />
-                <span className="text-primary/90 text-[10px] md:text-[11px] font-medium tracking-[0.25em] md:tracking-[0.3em] uppercase">
+                <span className="text-[#FCE7A0] text-[10px] md:text-[11px] font-medium tracking-[0.25em] md:tracking-[0.3em] uppercase">
                   Advocacia & Consultoria Jurídica
                 </span>
               </div>

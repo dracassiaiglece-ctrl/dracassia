@@ -67,7 +67,6 @@ const FAQSection = () => {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
       },
     },
   };
@@ -129,50 +128,57 @@ const FAQSection = () => {
             viewport={{ once: true, margin: "-50px" }}
             className="space-y-4"
           >
-            {faqData.map((faq, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary/30"
-              >
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full flex items-center justify-between p-5 md:p-6 text-left group"
+            {faqData.map((faq, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className={`border rounded-2xl overflow-hidden transition-all duration-300 ${
+                    isOpen
+                      ? "border-primary/60 bg-white/10"
+                      : "bg-white/[0.02] border-white/10 hover:border-primary/30"
+                  }`}
                 >
-                  <div className="flex items-start gap-4 flex-1">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <HelpCircle className="w-5 h-5 text-primary" />
-                    </div>
-                    <h3 className="text-base md:text-lg font-semibold text-foreground group-hover:text-primary transition-colors pr-4">
-                      {faq.question}
-                    </h3>
-                  </div>
-                  <ChevronDown
-                    className={`w-5 h-5 text-muted-foreground flex-shrink-0 transition-transform duration-300 ${
-                      openIndex === index ? "rotate-180 text-primary" : ""
-                    }`}
-                  />
-                </button>
-
-                <AnimatePresence>
-                  {openIndex === index && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-5 md:px-6 pb-5 md:pb-6 pl-20 md:pl-24">
-                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                          {faq.answer}
-                        </p>
+                  <button
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full flex items-center justify-between p-5 md:p-6 text-left group"
+                  >
+                    <div className="flex items-start gap-4 flex-1">
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                        <HelpCircle className="w-5 h-5 text-primary" />
                       </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
+                      <h3 className="text-base md:text-lg font-semibold text-foreground group-hover:text-primary transition-colors pr-4">
+                        {faq.question}
+                      </h3>
+                    </div>
+                    <ChevronDown
+                      className={`w-5 h-5 text-muted-foreground flex-shrink-0 transition-transform duration-300 ${
+                        isOpen ? "rotate-180 text-primary" : ""
+                      }`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-5 md:px-6 pb-5 md:pb-6 pl-20 md:pl-24 border-t border-white/10 pt-4">
+                          <p className="text-sm md:text-base text-stone-300 leading-relaxed">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
           </motion.div>
 
           {/* CTA no final */}
@@ -203,6 +209,8 @@ const FAQSection = () => {
 };
 
 export default FAQSection;
+
+
 
 
 

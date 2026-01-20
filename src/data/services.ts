@@ -10,12 +10,13 @@ import {
   HandHeart,
   Home,
   Gift,
+  type LucideIcon,
 } from "lucide-react";
 
 export interface Service {
   id: string;
   slug: string;
-  icon: any;
+  icon: LucideIcon;
   title: string;
   shortDescription: string;
   description: string;
@@ -238,6 +239,10 @@ export const services: Service[] = [
 export const getServiceBySlug = (slug: string): Service | undefined => {
   return services.find((service) => service.slug === slug);
 };
+
+
+
+
 
 
 

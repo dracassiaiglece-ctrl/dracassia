@@ -47,7 +47,7 @@ const Index = () => {
               addressCountry: "BR",
             },
             telephone: "+55-71-99352-3075",
-            email: "contato@cassiaiglece.adv.br",
+            email: "cassiaiglece.adv@gmail.com",
             openingHours: "Mo-Fr 09:00-18:00",
           })}
         </script>

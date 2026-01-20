@@ -110,7 +110,7 @@ const ServicePage = () => {
               className="max-w-4xl mx-auto"
             >
               {/* Botão Voltar - com espaçamento adequado do header */}
-              <div className="pt-32 md:pt-36 mb-8">
+              <div className="pt-32 md:pt-36 mb-12 md:mb-10">
                 <Link
                   to="/#areas"
                   onClick={handleBackToAreas}
@@ -122,7 +122,7 @@ const ServicePage = () => {
               </div>
 
               {/* Badge */}
-              <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="flex items-center justify-center gap-3 mb-8">
                 <div className="h-px w-8 md:w-12 bg-primary/60" />
                 <span className="text-primary/90 text-[10px] md:text-xs font-medium tracking-[0.25em] uppercase">
                   Área de Atuação
@@ -131,7 +131,7 @@ const ServicePage = () => {
               </div>
 
               {/* Ícone e Título */}
-              <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="flex flex-col items-center justify-center gap-6 md:flex-row md:gap-4 mb-8 md:mb-6">
                 <div className="w-16 h-16 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
                   <Icon className="w-8 h-8 text-primary" strokeWidth={2} />
                 </div>
@@ -210,4 +210,3 @@ const ServicePage = () => {
 };
 
 export default ServicePage;
-
