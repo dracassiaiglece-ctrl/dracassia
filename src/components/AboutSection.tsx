@@ -54,12 +54,12 @@ const AboutSection = () => {
     <section
       ref={sectionRef}
       id="sobre"
-      className="relative w-full bg-[#1a0a0f]"
+      className="relative w-full bg-wine-deep"
     >
       {/* Desktop: Layout de 2 colunas - Imagem à esquerda, Texto à direita */}
       <div className="hidden lg:grid lg:grid-cols-2 gap-12 xl:gap-16 w-full min-h-screen">
         {/* Coluna Esquerda: Imagem em Box Estilizada */}
-        <div className="relative w-full h-full flex items-center justify-center p-3 lg:p-4 xl:p-6 bg-[#1a0a0f]">
+        <div className="relative w-full h-full flex items-center justify-center p-3 lg:p-4 xl:p-6 bg-wine-deep">
           <div className="relative w-full h-full max-w-none group flex items-center justify-center">
             {/* Container principal da imagem */}
             <div className="relative rounded-xl overflow-hidden border border-primary/20 shadow-[0_20px_50px_rgba(88,28,40,0.35)] transition-all duration-300 w-[95%] h-[85vh] max-h-[900px]">
@@ -79,13 +79,14 @@ const AboutSection = () => {
                 className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                 style={{ display: "block" }}
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
         </div>
 
         {/* Coluna Direita: Conteúdo com fundo sólido */}
-        <div className="bg-[#1a0a0f] flex items-center py-4 lg:py-6 xl:py-8 px-5 lg:px-8 xl:px-10 min-h-screen">
+        <div className="bg-wine-deep flex items-center py-4 lg:py-6 xl:py-8 px-5 lg:px-8 xl:px-10 min-h-screen">
           <div ref={contentRef} className="w-full max-w-xl mx-auto">
             <div className="mb-4 lg:mb-6">
               <span className="text-xs lg:text-sm text-primary font-semibold uppercase tracking-wider">
@@ -147,7 +148,7 @@ const AboutSection = () => {
       </div>
 
       {/* Mobile: Layout integrado similar ao desktop - imagem com texto sobreposto */}
-      <div className="lg:hidden relative bg-[#1a0a0f]">
+      <div className="lg:hidden relative bg-wine-deep">
         {/* Container principal com imagem de fundo */}
         <div className="relative w-full">
           {/* Imagem de fundo com efeitos premium */}
@@ -174,13 +175,16 @@ const AboutSection = () => {
                   alt="Dra. Cássia Iglece"
                   className="w-full h-auto object-cover"
                   style={{ display: "block" }}
+                  loading="lazy"
+                  decoding="async"
                 />
                 
                 {/* Overlay gradiente para integração com fundo */}
                 <div 
                   className="absolute inset-0 z-10 pointer-events-none" 
                   style={{
-                    background: 'linear-gradient(to bottom, transparent 0%, transparent 60%, rgba(26, 10, 15, 0.3) 80%, rgba(26, 10, 15, 0.8) 95%, #1a0a0f 100%)'
+                    background:
+                      "linear-gradient(to bottom, transparent 0%, transparent 60%, hsl(var(--background) / 0.3) 80%, hsl(var(--background) / 0.8) 95%, hsl(var(--background)) 100%)",
                   }}
                 />
                 
@@ -188,7 +192,7 @@ const AboutSection = () => {
                 <div 
                   className="absolute top-0 left-0 right-0 h-1/4 z-10 pointer-events-none" 
                   style={{
-                    background: 'linear-gradient(to bottom, rgba(200, 160, 120, 0.05) 0%, transparent 100%)'
+                    background: "linear-gradient(to bottom, hsl(var(--gold-glow) / 0.05) 0%, transparent 100%)",
                   }}
                 />
               </div>
@@ -203,7 +207,7 @@ const AboutSection = () => {
           </div>
 
           {/* Conteúdo textual abaixo da imagem */}
-          <div className="relative bg-[#1a0a0f] pt-10 pb-8 px-5">
+          <div className="relative bg-wine-deep pt-10 pb-8 px-5">
             {/* Decoração de fundo sutil */}
             <div className="absolute inset-0 opacity-5">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-3xl" />

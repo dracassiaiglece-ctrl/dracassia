@@ -5,13 +5,13 @@ const CTASection = () => {
   return (
     <section className="relative py-20 md:py-28 overflow-hidden">
       {/* Background - mesmo tom do site */}
-      <div className="absolute inset-0 bg-[#1a0a0f]" />
+      <div className="absolute inset-0 bg-wine-deep" />
       
       {/* Gradiente sutil no topo */}
       <div 
         className="absolute top-0 left-0 right-0 h-32 pointer-events-none" 
         style={{
-          background: "linear-gradient(to bottom, rgba(26, 10, 15, 0.9), transparent)",
+          background: "linear-gradient(to bottom, hsl(var(--background) / 0.9), transparent)",
         }}
       />
 
@@ -87,7 +87,7 @@ const CTASection = () => {
                 href="https://wa.me/5571993523075?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20para%20orientação%20jurídica%20em%20Direito%20de%20Família%20e%20Sucessões."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-[#d4a574] text-[#1a0a0f] font-semibold text-sm md:text-base tracking-wide px-8 md:px-10 py-4 md:py-5 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(200,160,120,0.4)] hover:-translate-y-0.5"
+                className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-gold-light text-wine-deep font-semibold text-sm md:text-base tracking-wide px-8 md:px-10 py-4 md:py-5 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_hsl(var(--primary)/0.35)] hover:-translate-y-0.5"
               >
                 <MessageCircle className="w-5 h-5" strokeWidth={2.5} />
                 <span>Agendar Consulta</span>

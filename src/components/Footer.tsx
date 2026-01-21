@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Instagram, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Linkedin, MessageCircle } from "lucide-react";
 import Logo from "./Logo";
 import { useRef, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -8,7 +8,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
   const footerRef = useRef<HTMLElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -46,7 +45,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer ref={footerRef} className="relative z-20 bg-[#1a0a0f] border-t border-white/10">
+    <footer ref={footerRef} className="relative z-20 bg-wine-deep border-t border-white/10">
       <div className="container-custom px-4 md:px-8 py-16">
         <div className="footer-content grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Logo & Description */}
@@ -162,6 +161,15 @@ const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-white/70 hover:text-gold-400 transition-colors duration-300"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
                 href="https://wa.me/5571993523075"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -180,7 +188,7 @@ const Footer = () => {
         <div className="container-custom px-4 md:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <p>
-              © {currentYear} Cássia Iglece Advocacia. Todos os direitos reservados.
+              © 2026 Dra. Cássia Iglece. Todos os direitos reservados.
             </p>
             <p className="text-xs text-muted-foreground">
               Desenvolvido por:{" "}

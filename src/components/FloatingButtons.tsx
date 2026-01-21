@@ -38,7 +38,8 @@ const FloatingButtons = () => {
       "Olá! Gostaria de mais informações sobre os serviços jurídicos."
     );
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    window.open(whatsappUrl, "_blank");
+    const opened = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    if (opened) opened.opener = null;
   };
 
   return (
@@ -47,7 +48,7 @@ const FloatingButtons = () => {
         {!isMobileMenuOpen && (
           <motion.button
             onClick={openWhatsApp}
-            className="w-14 h-14 rounded-full bg-gold-400 hover:bg-gold-400/90 text-[#1a0a0f] shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group relative overflow-hidden"
+            className="w-14 h-14 rounded-full bg-gold-400 hover:bg-gold-400/90 text-wine-deep shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group relative overflow-hidden"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 20 }}
@@ -94,7 +95,6 @@ const FloatingButtons = () => {
 };
 
 export default FloatingButtons;
-
 
 
 

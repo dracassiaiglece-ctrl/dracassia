@@ -79,7 +79,7 @@ const Header = () => {
       <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-10 opacity-100"
       }`}>
-        <div className="h-full bg-[#0d0508]/90 backdrop-blur-sm border-b border-primary/10">
+        <div className="h-full bg-background/90 backdrop-blur-sm border-b border-primary/10">
           <div className="container-custom h-full px-6 md:px-8 flex items-center justify-center md:justify-end gap-6 md:gap-8">
             <a 
               href="tel:+5571993523075" 
@@ -103,7 +103,7 @@ const Header = () => {
       <header
         className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "top-0 bg-[#1a0a0f]/95 backdrop-blur-md border-b border-primary/10 shadow-2xl shadow-black/20"
+            ? "top-0 bg-background/95 backdrop-blur-md border-b border-primary/10 shadow-2xl shadow-black/20"
             : "top-10 bg-transparent"
         }`}
       >
@@ -154,13 +154,13 @@ const Header = () => {
               rel="noopener noreferrer"
               className="hidden lg:flex items-center gap-3 group"
             >
-              <div className="relative overflow-hidden rounded-full bg-gradient-to-r from-primary to-[#d4a574] p-[1px]">
-                <div className="flex items-center gap-2.5 bg-[#1a0a0f] hover:bg-transparent px-6 py-2.5 rounded-full transition-all duration-300">
-                  <MessageCircle className="w-4 h-4 text-primary group-hover:text-[#1a0a0f] transition-colors" />
-                  <span className="text-sm font-semibold text-white group-hover:text-[#1a0a0f] transition-colors">
+              <div className="relative overflow-hidden rounded-full bg-gradient-to-r from-primary to-gold-light p-[1px]">
+                <div className="flex items-center gap-2.5 bg-background hover:bg-transparent px-6 py-2.5 rounded-full transition-all duration-300">
+                  <MessageCircle className="w-4 h-4 text-primary group-hover:text-background transition-colors" />
+                  <span className="text-sm font-semibold text-white group-hover:text-background transition-colors">
                     Falar com Especialista
                   </span>
-                  <ArrowRight className="w-4 h-4 text-primary group-hover:text-[#1a0a0f] group-hover:translate-x-0.5 transition-all" />
+                  <ArrowRight className="w-4 h-4 text-primary group-hover:text-background group-hover:translate-x-0.5 transition-all" />
                 </div>
               </div>
             </a>
@@ -233,7 +233,7 @@ const Header = () => {
               href="https://wa.me/5571993523075"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-4 bg-gradient-to-r from-primary to-[#d4a574] text-[#1a0a0f] px-8 py-4 rounded-full font-semibold"
+              className="inline-flex items-center gap-4 bg-gradient-to-r from-primary to-gold-light text-background px-8 py-4 rounded-full font-semibold"
             >
               <MessageCircle className="w-5 h-5" />
               <span>Falar com Especialista</span>

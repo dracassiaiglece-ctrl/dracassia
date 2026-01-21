@@ -37,7 +37,7 @@ const ChartContainer = React.forwardRef<
   }
 >(({ id, className, children, config, ...props }, ref) => {
   const uniqueId = React.useId();
-  const chartId = `chart-${id || uniqueId.replace(/:/g, "")}`;
+  const chartId = `chart-${id || uniqueId.replace(/:/g, "")}`.replace(/[^a-zA-Z0-9_-]/g, "");
 
   return (
     <ChartContext.Provider value={{ config }}>
@@ -58,6 +58,19 @@ const ChartContainer = React.forwardRef<
 });
 ChartContainer.displayName = "Chart";
 
+const toSafeCssVarSegment = (value: string) => value.toLowerCase().replace(/[^a-z0-9_-]/g, "-");
+
+const toSafeCssValue = (value: string) => {
+  const trimmed = value.trim();
+  if (!trimmed) return null;
+  if (/[<>{};&]/.test(trimmed)) return null;
+  if (trimmed.length > 200) return null;
+  if (/^#[0-9a-fA-F]{3,8}$/.test(trimmed)) return trimmed;
+  if (/^(rgb|rgba|hsl|hsla)\([0-9%.,\s/+-]+\)$/.test(trimmed)) return trimmed;
+  if (/^var\(--[a-zA-Z0-9_-]+\)$/.test(trimmed)) return trimmed;
+  return null;
+};
+
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   const colorConfig = Object.entries(config).filter(([_, config]) => config.theme || config.color);
 
@@ -65,26 +78,36 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
     return null;
   }
 
-  return (
-    <style
-      dangerouslySetInnerHTML={{
-        __html: Object.entries(THEMES)
-          .map(
-            ([theme, prefix]) => `
-${prefix} [data-chart=${id}] {
-${colorConfig
-  .map(([key, itemConfig]) => {
-    const color = itemConfig.theme?.[theme as keyof typeof itemConfig.theme] || itemConfig.color;
-    return color ? `  --color-${key}: ${color};` : null;
-  })
-  .join("\n")}
+  const cssText = Object.entries(THEMES)
+    .map(([theme, prefix]) => {
+      const lines = colorConfig
+        .map(([key, itemConfig]) => {
+          const rawColor = itemConfig.theme?.[theme as keyof typeof itemConfig.theme] || itemConfig.color;
+          if (!rawColor) return null;
+          const safeColor = toSafeCssValue(rawColor);
+          if (!safeColor) return null;
+          const safeKey = toSafeCssVarSegment(key);
+          return `  --color-${safeKey}: ${safeColor};`;
+        })
+        .filter(Boolean)
+        .join("\n");
+
+      if (!lines) return null;
+
+      return `
+${prefix} [data-chart="${id}"] {
+${lines}
 }
-`,
-          )
-          .join("\n"),
-      }}
-    />
-  );
+`;
+    })
+    .filter(Boolean)
+    .join("\n");
+
+  if (!cssText) {
+    return null;
+  }
+
+  return <style>{cssText}</style>;
 };
 
 const ChartTooltip = RechartsPrimitive.Tooltip;

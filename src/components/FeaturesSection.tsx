@@ -96,18 +96,19 @@ const HonorariosSection = () => {
       className="relative min-h-screen w-full overflow-hidden py-24 md:py-32"
     >
       {/* Background com o mesmo tom do esfumado do bottom da AboutSection */}
-      <div className="absolute inset-0 bg-[#1a0a0f]" />
+      <div className="absolute inset-0 bg-wine-deep" />
       
       {/* Esfumado no topo para transição suave */}
       <div 
         className="absolute top-0 left-0 right-0 h-[150px] md:h-[200px] pointer-events-none" 
         style={{
-          background: 'linear-gradient(to bottom, transparent 0%, rgba(26, 10, 15, 0.25) 15%, rgba(26, 10, 15, 0.5) 30%, rgba(26, 10, 15, 0.75) 50%, rgba(26, 10, 15, 0.9) 70%, #1a0a0f 100%)'
+          background:
+            "linear-gradient(to bottom, transparent 0%, hsl(var(--background) / 0.25) 15%, hsl(var(--background) / 0.5) 30%, hsl(var(--background) / 0.75) 50%, hsl(var(--background) / 0.9) 70%, hsl(var(--background)) 100%)",
         }}
       />
       
       {/* Linha decorativa sutil */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-900/20 to-transparent z-10" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent z-10" />
 
       {/* Conteúdo */}
       <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-16 py-12">
@@ -181,7 +182,7 @@ const HonorariosSection = () => {
                 className="group relative"
               >
                 {/* Card principal - minimalista e elegante */}
-                <div className="relative h-full bg-[#1a0a0f] border border-white/10 rounded-xl p-8 md:p-10 transition-all duration-500 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 overflow-hidden group/card">
+                <div className="relative h-full bg-wine-deep border border-white/10 rounded-xl p-8 md:p-10 transition-all duration-500 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 overflow-hidden group/card">
                   {/* Número da área com animação de hover */}
                   <div className="absolute top-6 right-6 transition-all duration-500 group-hover/card:scale-110 group-hover/card:-translate-y-1">
                     <div className="text-5xl md:text-6xl font-playfair font-bold text-primary/10 group-hover/card:text-primary/100 transition-all duration-500 relative">

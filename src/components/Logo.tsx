@@ -37,6 +37,7 @@ const Logo = ({ className = "", showText = true, size = "md" }: LogoProps) => {
         src={logoImg} 
         alt="CI" 
         className={`${s.logo} w-auto object-contain brightness-0 invert`}
+        decoding="async"
       />
 
       {/* Texto */}

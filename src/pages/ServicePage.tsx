@@ -22,7 +22,7 @@ const ServicePage = () => {
     return (
       <>
         <Header />
-        <div className="min-h-screen bg-[#1a0a0f] flex items-center justify-center">
+        <div className="min-h-screen bg-wine-deep flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-4xl font-playfair font-bold text-foreground mb-4">
               Serviço não encontrado
@@ -48,7 +48,8 @@ const ServicePage = () => {
       `Olá! Gostaria de saber mais informações sobre ${service.title}.`
     );
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    window.open(whatsappUrl, "_blank");
+    const opened = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    if (opened) opened.opener = null;
   };
 
   const handleBackToAreas = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -90,15 +91,15 @@ const ServicePage = () => {
       </Helmet>
 
       <Header />
-      <main className="min-h-screen bg-[#1a0a0f]">
+      <main className="min-h-screen bg-wine-deep">
         {/* Hero Section da Página */}
         <section className="relative py-20 md:py-28 overflow-hidden">
-          <div className="absolute inset-0 bg-[#1a0a0f]" />
+          <div className="absolute inset-0 bg-wine-deep" />
           
           <div 
             className="absolute top-0 left-0 right-0 h-32 pointer-events-none" 
             style={{
-              background: "linear-gradient(to bottom, rgba(26, 10, 15, 0.9), transparent)",
+              background: "linear-gradient(to bottom, hsl(var(--background) / 0.9), transparent)",
             }}
           />
 
@@ -191,7 +192,7 @@ const ServicePage = () => {
                     </p>
                     <button
                       onClick={openWhatsApp}
-                      className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-[#d4a574] text-[#1a0a0f] font-semibold text-sm md:text-base tracking-wide px-8 md:px-10 py-4 md:py-5 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(200,160,120,0.4)] hover:-translate-y-0.5"
+                      className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-gold-light text-wine-deep font-semibold text-sm md:text-base tracking-wide px-8 md:px-10 py-4 md:py-5 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_hsl(var(--primary)/0.35)] hover:-translate-y-0.5"
                     >
                       <MessageCircle className="w-5 h-5" strokeWidth={2.5} />
                       <span>Falar com Especialista</span>

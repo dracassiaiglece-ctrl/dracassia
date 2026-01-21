@@ -16,7 +16,8 @@ const PracticeAreas = () => {
       `Olá, preciso de atendimento jurídico para ${areaTitle}`
     );
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    window.open(whatsappUrl, "_blank");
+    const opened = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    if (opened) opened.opener = null;
   };
 
   const containerVariants = {
@@ -51,13 +52,14 @@ const PracticeAreas = () => {
       className="relative min-h-screen w-full overflow-hidden py-24 md:py-32"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-[#1a0a0f]" />
+      <div className="absolute inset-0 bg-wine-deep" />
       
       {/* Esfumado no topo para transição suave */}
       <div 
         className="absolute top-0 left-0 right-0 h-[150px] md:h-[200px] pointer-events-none" 
         style={{
-          background: 'linear-gradient(to bottom, transparent 0%, rgba(26, 10, 15, 0.25) 15%, rgba(26, 10, 15, 0.5) 30%, rgba(26, 10, 15, 0.75) 50%, rgba(26, 10, 15, 0.9) 70%, #1a0a0f 100%)'
+          background:
+            "linear-gradient(to bottom, transparent 0%, hsl(var(--background) / 0.25) 15%, hsl(var(--background) / 0.5) 30%, hsl(var(--background) / 0.75) 50%, hsl(var(--background) / 0.9) 70%, hsl(var(--background)) 100%)",
         }}
       />
 
@@ -125,7 +127,7 @@ const PracticeAreas = () => {
                 className="group relative"
               >
                 {/* Card principal - minimalista e elegante */}
-                <div className="relative h-full bg-[#1a0a0f] border border-white/10 rounded-xl p-8 md:p-10 transition-all duration-500 hover:border-primary/40 hover:bg-white/5 hover:-translate-y-1 overflow-hidden group/card flex flex-col justify-between">
+                <div className="relative h-full bg-wine-deep border border-white/10 rounded-xl p-8 md:p-10 transition-all duration-500 hover:border-primary/40 hover:bg-white/5 hover:-translate-y-1 overflow-hidden group/card flex flex-col justify-between">
                   {/* Ícone com animação no hover */}
                   <div className="flex-shrink-0 mb-6 p-3 rounded-lg bg-primary/10 border border-primary/20 group-hover/card:bg-primary/20 group-hover/card:border-primary/40 group-hover/card:scale-110 transition-all duration-500 w-fit">
                     <Icon className="w-6 h-6 text-primary group-hover/card:text-primary transition-colors duration-500" strokeWidth={2} />

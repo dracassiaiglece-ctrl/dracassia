@@ -138,17 +138,20 @@ const Hero = () => {
         {/* Background */}
         <img
           src={heroBg}
-          alt=""
+          alt="Imagem de fundo do site"
           className="w-full h-full object-cover"
           style={{ objectPosition: "center center" }}
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
         />
         {/* Overlays */}
-        <div className="absolute inset-0 bg-[#1a0a0f]/65" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1a0a0f]/95 via-[#1a0a0f]/60 to-transparent hidden md:block" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1a0a0f] via-transparent to-[#1a0a0f]/30" />
+        <div className="absolute inset-0 bg-background/65" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/60 to-transparent hidden md:block" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
         
         {/* Mobile: Overlay mais forte para melhor contraste */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1a0a0f]/80 via-[#1a0a0f]/70 to-[#1a0a0f]/85 md:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background/85 md:hidden" />
         
         {/* Página 1 - Lado esquerdo (segundo plano) */}
         <div 
@@ -157,8 +160,10 @@ const Hero = () => {
         >
           <img
             src={pagina1}
-            alt=""
+            alt="Elemento decorativo do hero"
             className="max-w-[250px] w-auto h-auto object-contain opacity-60"
+            loading="lazy"
+            decoding="async"
             style={{
               filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.4))",
               transition: "transform 0.1s ease-out"
@@ -169,12 +174,14 @@ const Hero = () => {
         {/* Página 2 - Lado direito (segundo plano) */}
         <div 
           ref={pagina2Ref}
-          className="absolute bottom-[35%] left-[85%] hidden md:block will-change-transform z-[1]"
+          className="absolute bottom-[22%] left-[70%] hidden md:block will-change-transform z-[1]"
         >
           <img
-            src={pagina1}
-            alt=""
-            className="max-w-[350px] w-auto h-auto object-contain opacity-60"
+            src={pagina2}
+            alt="Elemento decorativo do hero"
+            className="w-[1500px] h-auto object-contain opacity-80"
+            loading="lazy"
+            decoding="async"
             style={{
               filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.4))",
               transition: "transform 0.1s ease-out"
@@ -191,6 +198,7 @@ const Hero = () => {
             src={draCassia}
             alt="Dra. Cássia Iglece"
             className="h-full w-auto object-contain object-bottom"
+            decoding="async"
             style={{
               filter: "drop-shadow(-20px 10px 40px rgba(0,0,0,0.5))",
               maxWidth: "52vw",
@@ -205,6 +213,7 @@ const Hero = () => {
             src={draCassiaWebp}
             alt="Dra. Cássia Iglece"
             className="h-full w-auto object-contain mx-auto"
+            decoding="async"
             style={{
               filter: "drop-shadow(0 15px 40px rgba(0,0,0,0.7))",
               maxWidth: "85vw",
@@ -213,7 +222,7 @@ const Hero = () => {
         </div>
 
         {/* Esfumaçado vermelho no canto inferior - apenas desktop */}
-        <div className="hidden md:block absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-red-900/25 via-red-800/12 to-transparent pointer-events-none" />
+        <div className="hidden md:block absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-wine-dark/25 via-wine-closed/12 to-transparent pointer-events-none" />
       </div>
 
       {/* Seção Hero*/}
@@ -232,7 +241,7 @@ const Hero = () => {
               {/* Badge */}
               <div className="flex items-center justify-center gap-3 mb-3">
                 <div className="h-px w-8 bg-primary/60" />
-                <span className="text-[#FCE7A0] text-[10px] font-medium tracking-[0.25em] uppercase">
+                <span className="text-gold-light text-[10px] font-medium tracking-[0.25em] uppercase">
                   Advocacia & Consultoria Jurídica
                 </span>
               </div>
@@ -261,7 +270,7 @@ const Hero = () => {
                   href="https://wa.me/5571993523075"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-[#d4a574] text-[#1a0a0f] font-semibold text-sm tracking-wide px-6 py-2.5 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(200,160,120,0.4)] hover:-translate-y-0.5"
+                  className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-gold-light text-wine-deep font-semibold text-sm tracking-wide px-6 py-2.5 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_hsl(var(--primary)/0.35)] hover:-translate-y-0.5"
                 >
                   <MessageCircle className="w-5 h-5" strokeWidth={2.5} />
                   <span>Falar com Especialista</span>
@@ -283,7 +292,7 @@ const Hero = () => {
               {/* Badge */}
               <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-10">
                 <div className="h-px w-8 md:w-10 bg-primary/60" />
-                <span className="text-[#FCE7A0] text-[10px] md:text-[11px] font-medium tracking-[0.25em] md:tracking-[0.3em] uppercase">
+                <span className="text-gold-light text-[10px] md:text-[11px] font-medium tracking-[0.25em] md:tracking-[0.3em] uppercase">
                   Advocacia & Consultoria Jurídica
                 </span>
               </div>
@@ -312,7 +321,7 @@ const Hero = () => {
                   href="https://wa.me/5571993523075"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-[#d4a574] text-[#1a0a0f] font-semibold text-sm tracking-wide px-6 md:px-8 py-3.5 md:py-4 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(200,160,120,0.4)] hover:-translate-y-0.5"
+                  className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-gold-light text-wine-deep font-semibold text-sm tracking-wide px-6 md:px-8 py-3.5 md:py-4 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_hsl(var(--primary)/0.35)] hover:-translate-y-0.5"
                 >
                   <MessageCircle className="w-5 h-5" strokeWidth={2.5} />
                   <span>Falar com Especialista</span>

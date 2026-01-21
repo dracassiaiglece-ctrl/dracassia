@@ -74,13 +74,13 @@ const FAQSection = () => {
   return (
     <section id="faq" className="relative py-20 md:py-28 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-[#1a0a0f]" />
+      <div className="absolute inset-0 bg-wine-deep" />
       
       {/* Gradiente sutil no topo */}
       <div 
         className="absolute top-0 left-0 right-0 h-32 pointer-events-none" 
         style={{
-          background: "linear-gradient(to bottom, rgba(26, 10, 15, 0.9), transparent)",
+          background: "linear-gradient(to bottom, hsl(var(--background) / 0.9), transparent)",
         }}
       />
 
@@ -169,7 +169,7 @@ const FAQSection = () => {
                         className="overflow-hidden"
                       >
                         <div className="px-5 md:px-6 pb-5 md:pb-6 pl-20 md:pl-24 border-t border-white/10 pt-4">
-                          <p className="text-sm md:text-base text-stone-300 leading-relaxed">
+                          <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                             {faq.answer}
                           </p>
                         </div>
@@ -209,8 +209,6 @@ const FAQSection = () => {
 };
 
 export default FAQSection;
-
-
 
 
 

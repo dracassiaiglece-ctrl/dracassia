@@ -49,7 +49,8 @@ const ContactForm = () => {
           `Mensagem:\n${formData.message}`
         );
         
-        window.open(`https://wa.me/5571993523075?text=${whatsappMessage}`, "_blank");
+        const opened = window.open(`https://wa.me/5571993523075?text=${whatsappMessage}`, "_blank", "noopener,noreferrer");
+        if (opened) opened.opener = null;
       }
     }, 500);
   };
@@ -58,19 +59,20 @@ const ContactForm = () => {
     const whatsappMessage = encodeURIComponent(
       `Olá! Gostaria de entrar em contato para uma consulta jurídica.`
     );
-    window.open(`https://wa.me/5571993523075?text=${whatsappMessage}`, "_blank");
+    const opened = window.open(`https://wa.me/5571993523075?text=${whatsappMessage}`, "_blank", "noopener,noreferrer");
+    if (opened) opened.opener = null;
   };
 
   return (
     <section id="contato" className="relative py-20 md:py-28 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-[#1a0a0f]" />
+      <div className="absolute inset-0 bg-wine-deep" />
       
       {/* Gradiente sutil no topo */}
       <div 
         className="absolute top-0 left-0 right-0 h-32 pointer-events-none" 
         style={{
-          background: "linear-gradient(to bottom, rgba(26, 10, 15, 0.9), transparent)",
+          background: "linear-gradient(to bottom, hsl(var(--background) / 0.9), transparent)",
         }}
       />
 
@@ -184,7 +186,7 @@ const ContactForm = () => {
               {/* Botão WhatsApp Direto */}
               <button
                 onClick={handleWhatsAppDirect}
-                className="w-full group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-[#d4a574] text-[#1a0a0f] font-semibold text-sm md:text-base tracking-wide px-6 py-4 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(200,160,120,0.4)] hover:-translate-y-0.5"
+                className="w-full group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-gold-light text-wine-deep font-semibold text-sm md:text-base tracking-wide px-6 py-4 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_hsl(var(--primary)/0.35)] hover:-translate-y-0.5"
               >
                 <MessageCircle className="w-5 h-5" strokeWidth={2.5} />
                 <span>Falar pelo WhatsApp</span>
@@ -287,7 +289,7 @@ const ContactForm = () => {
 
               <button
                 type="submit"
-                className="w-full group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-[#d4a574] text-[#1a0a0f] font-semibold text-sm md:text-base tracking-wide px-6 py-4 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(200,160,120,0.4)] hover:-translate-y-0.5"
+                className="w-full group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-gold-light text-wine-deep font-semibold text-sm md:text-base tracking-wide px-6 py-4 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_hsl(var(--primary)/0.35)] hover:-translate-y-0.5"
               >
                 <Send className="w-5 h-5" strokeWidth={2.5} />
                 <span>Enviar Mensagem</span>

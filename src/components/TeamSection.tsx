@@ -98,23 +98,25 @@ const TeamSection = () => {
 
   // Card component reutilizável
   const TeamCard = ({ member }: { member: TeamMember }) => (
-    <div className="relative h-full bg-gradient-to-b from-[#1a0a0f] to-[#150810] border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 group/card flex flex-col">
+    <div className="relative h-full bg-wine-deep border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 group/card flex flex-col">
       {/* Foto */}
       <div className="relative aspect-[3/4] min-h-[280px] sm:min-h-[320px] md:min-h-[300px] lg:min-h-[320px] overflow-hidden">
         <img
           src={member.image}
           alt={member.name}
           className="w-full h-full object-cover object-[center_20%] brightness-90 saturate-75 group-hover/card:brightness-110 group-hover/card:saturate-100 group-hover/card:scale-105 transition-[transform,filter] duration-700"
+          loading="lazy"
+          decoding="async"
         />
         {/* Overlay gradiente mais suave */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#150810] via-[#1a0a0f]/15 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-wine-deep via-wine-deep/15 to-transparent" />
         
         {/* Badge de áreas no canto */}
         <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
           {member.areas.slice(0, 2).map((area, areaIndex) => (
             <span
               key={areaIndex}
-              className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider bg-primary/90 backdrop-blur-sm rounded-full text-[#1a0a0f]"
+              className="px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider bg-primary/90 backdrop-blur-sm rounded-full text-wine-deep"
             >
               {area}
             </span>
@@ -173,13 +175,14 @@ const TeamSection = () => {
       className="relative w-full overflow-hidden py-20 md:py-28"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-[#1a0a0f]" />
+      <div className="absolute inset-0 bg-wine-deep" />
       
       {/* Esfumado no topo para transição suave */}
       <div 
         className="absolute top-0 left-0 right-0 h-[100px] md:h-[150px] pointer-events-none" 
         style={{
-          background: 'linear-gradient(to bottom, transparent 0%, rgba(26, 10, 15, 0.5) 30%, rgba(26, 10, 15, 0.8) 60%, #1a0a0f 100%)'
+          background:
+            "linear-gradient(to bottom, transparent 0%, hsl(var(--background) / 0.5) 30%, hsl(var(--background) / 0.8) 60%, hsl(var(--background)) 100%)",
         }}
       />
 
