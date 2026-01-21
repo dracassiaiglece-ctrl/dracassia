@@ -74,12 +74,24 @@ const Footer = () => {
                 { label: "Sobre", href: "#sobre" },
                 { label: "Áreas de Atuação", href: "#areas" },
                 { label: "Contato", href: "#contato" },
+                { label: "Política de Privacidade", href: "/privacidade" },
               ].map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     onClick={(e) => {
                       e.preventDefault();
+                      if (!link.href.startsWith("#")) {
+                        if (location.pathname !== link.href) {
+                          navigate(link.href);
+                          setTimeout(() => {
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }, 50);
+                        } else {
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }
+                        return;
+                      }
                       // Se não estiver na página inicial, navegar para lá primeiro
                       if (location.pathname !== "/") {
                         navigate("/");
