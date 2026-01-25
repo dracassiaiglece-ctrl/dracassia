@@ -103,6 +103,50 @@
     --sidebar-border: 348 40% 15%;
     --sidebar-ring: 30 42% 50%;
   }
+
+  .accessibility-contrast {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 60 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 0%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 0%;
+    --muted-foreground: 60 100% 50%;
+
+    --accent: 60 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --border: 0 0% 40%;
+    --input: 0 0% 0%;
+    --ring: 60 100% 50%;
+
+    --wine-dark: 0 0% 0%;
+    --wine-closed: 0 0% 0%;
+    --wine-deep: 0 0% 0%;
+
+    --gold-elegant: 60 100% 50%;
+    --gold-light: 60 100% 50%;
+    --gold-glow: 60 100% 50%;
+
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 60 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 0%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 40%;
+    --sidebar-ring: 60 100% 50%;
+  }
 }
 
 @layer base {

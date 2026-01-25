@@ -37,6 +37,7 @@ const Header = () => {
     { label: "Início", href: "#inicio" },
     { label: "Sobre", href: "#sobre" },
     { label: "Áreas de Atuação", href: "#areas" },
+    { label: "Outras Áreas", href: "/atuacao-multidisciplinar" },
     { label: "Contato", href: "#contato" },
   ];
 
@@ -136,7 +137,16 @@ const Header = () => {
                   href={item.href}
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollToSection(item.href);
+                    if (item.href.startsWith("#")) {
+                      scrollToSection(item.href);
+                      return;
+                    }
+
+                    navigate(item.href);
+                    setIsMobileMenuOpen(false);
+                    setTimeout(() => {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }, 0);
                   }}
                   className="relative px-5 py-2 text-[13px] text-white/60 hover:text-white transition-all duration-300 font-medium tracking-wide group"
                 >
@@ -207,7 +217,16 @@ const Header = () => {
               href={item.href}
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection(item.href);
+                if (item.href.startsWith("#")) {
+                  scrollToSection(item.href);
+                  return;
+                }
+
+                navigate(item.href);
+                setIsMobileMenuOpen(false);
+                setTimeout(() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }, 0);
               }}
               className={`relative text-2xl sm:text-3xl font-playfair text-white/70 hover:text-primary py-3 transition-all duration-500 group ${
                 isMobileMenuOpen 

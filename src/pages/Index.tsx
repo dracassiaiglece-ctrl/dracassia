@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TransitionSection from "@/components/TransitionSection";
 import AboutSection from "@/components/AboutSection";
+import DifferentiatorsSection from "@/components/DifferentiatorsSection";
 import HonorariosSection from "@/components/HonorariosSection";
 import TeamSection from "@/components/TeamSection";
 import PracticeAreas from "@/components/PracticeAreas";
@@ -63,6 +64,7 @@ const Index = () => {
             <TransitionSection />
             <div className="bg-background">
               <AboutSection />
+              <DifferentiatorsSection />
               <PracticeAreas />
               <HonorariosSection />
               <TeamSection />

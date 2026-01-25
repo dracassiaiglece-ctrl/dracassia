@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { GraduationCap, Award, Briefcase } from "lucide-react";
+import { GraduationCap, Award, Briefcase, Phone, Mail, Instagram } from "lucide-react";
 import nathaliaImg from "@/assets/Nathalia Costa.jpeg";
-import gloriaImg from "@/assets/Gloria Almeida.jpeg";
+import gloriaImg from "@/assets/Gloria Almeida.jpg";
 import uineImg from "@/assets/Uine Santana.jpeg";
 import junialissonImg from "@/assets/Dr. Junialisson 1.JPEG";
 
@@ -13,13 +13,16 @@ interface TeamMember {
   university: string;
   specializations: string[];
   oab?: string;
+  phone?: string;
+  email?: string;
+  instagram?: string;
   extraAreas?: string[];
 }
 
 // Ordenado alfabeticamente pelo primeiro nome
 const teamMembers: TeamMember[] = [
   {
-    name: "Glória Almeida Dutra",
+    name: "Glória Dutra",
     image: gloriaImg,
     areas: ["Cível", "Trabalhista"],
     university: "Universidade Ceuma - Maranhão",
@@ -27,6 +30,9 @@ const teamMembers: TeamMember[] = [
       "Pós-graduação em Direito Trabalhista pela Damásio Educacional",
     ],
     oab: "OAB/BA 77.373",
+    phone: "(71)993388534",
+    email: "gloria_dutra1@hotmail.com",
+    instagram: "@gloriaalmeida.adv",
     extraAreas: ["Cível", "Trabalhista"],
   },
   {
@@ -39,36 +45,52 @@ const teamMembers: TeamMember[] = [
       "Pós-graduação em Advocacia Criminal pela Legale",
     ],
     oab: "OAB/BA 84.379",
+    phone: "71 99707-1372",
+    email: "contato@junialissoncosta.adv.br",
+    instagram: "dr.junialissoncosta",
     extraAreas: ["Criminal", "Penal"],
   },
   {
-    name: "Nathália Costa Santos Araújo",
+    name: "Nathália Araújo",
     image: nathaliaImg,
-    areas: ["Criminal", "Empresarial"],
+    areas: ["Criminal", "Previdenciário"],
     university: "Universidade Católica do Salvador - UCSAL",
     specializations: [
       "Pós-graduação em Direito Processual Penal pela FAMEF",
       "Direito Previdenciário e Empresarial",
     ],
-    oab: "OAB/BA -----",
+    oab: "OAB 86425",
+    phone: "71 9 9198-3666",
+    email: "araujonathalia.adv@gmail.com",
+    instagram: "nathaliaaraujo.adv",
     extraAreas: ["Previdenciário"],
   },
   {
     name: "Uine Santana",
     image: uineImg,
-    areas: ["Contratual", "Ambiental"],
+    areas: ["Contratual", "Bancário"],
     university: "UFBA",
     specializations: [
       "Pós-graduanda em Direito Ambiental pela UFPR",
       "Pós-graduada em Direito do Agronegócio pela LEGALE",
     ],
-    oab: "OAB/BA ------",
+    oab: "OAB/BA 84.194",
+    phone: "(71) 9 9333-5137",
+    email: "adv.uinesantana@gmail.com",
+    instagram: "uinesantana.advocacia",
     extraAreas: ["Agrário", "Bancário", "Ambiental"],
   },
 ];
 
 const TeamSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
+
+  const normalizePhone = (phone: string) => phone.replace(/\D/g, "");
+
+  const instagramUrl = (handle: string) => {
+    const normalized = handle.replace(/^@/, "").trim();
+    return `https://instagram.com/${normalized}`;
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -151,6 +173,40 @@ const TeamSection = () => {
           ))}
         </div>
 
+        {(member.phone || member.email || member.instagram) && (
+          <div className="space-y-2 mb-4">
+            {member.phone && (
+              <a
+                href={`tel:${normalizePhone(member.phone)}`}
+                className="flex items-start gap-2.5 text-xs text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Phone className="w-4 h-4 text-primary/80 mt-0.5 flex-shrink-0" />
+                <span className="leading-relaxed">{member.phone}</span>
+              </a>
+            )}
+            {member.email && (
+              <a
+                href={`mailto:${member.email}`}
+                className="flex items-start gap-2.5 text-xs text-muted-foreground hover:text-primary transition-colors break-all"
+              >
+                <Mail className="w-4 h-4 text-primary/80 mt-0.5 flex-shrink-0" />
+                <span className="leading-relaxed">{member.email}</span>
+              </a>
+            )}
+            {member.instagram && (
+              <a
+                href={instagramUrl(member.instagram)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2.5 text-xs text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Instagram className="w-4 h-4 text-primary/80 mt-0.5 flex-shrink-0" />
+                <span className="leading-relaxed">{member.instagram}</span>
+              </a>
+            )}
+          </div>
+        )}
+
         {/* OAB se tiver */}
         {member.oab && (
           <div className="pt-3 border-t border-primary/20">
@@ -168,6 +224,8 @@ const TeamSection = () => {
       <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/0 to-transparent group-hover/card:via-primary transition-all duration-500" />
     </div>
   );
+
+  const sortedTeamMembers = [...teamMembers].sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
 
   return (
     <section
@@ -212,24 +270,22 @@ const TeamSection = () => {
           </p>
         </motion.div>
 
-        {/* Grid responsivo */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto"
-        >
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              className="h-full"
-            >
-              <TeamCard member={member} />
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {sortedTeamMembers.map((member) => (
+              <motion.div key={member.name} variants={cardVariants} className="h-full">
+                <TeamCard member={member} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
       </div>
     </section>
   );

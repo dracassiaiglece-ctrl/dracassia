@@ -131,7 +131,7 @@ const HonorariosSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              Escopo de
+              Condução jurídica de demandas familiares e
             </motion.span>{" "}
             <motion.span 
               className="inline-block text-primary"
@@ -140,7 +140,7 @@ const HonorariosSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             >
-              Atuação
+              sucessórias
             </motion.span>
           </h2>
           <motion.p 
@@ -151,7 +151,7 @@ const HonorariosSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Estruturação de serviços jurídicos especializados em Direito de Família e Sucessões
+            Planejamento e condução jurídica de demandas familiares e sucessórias, com foco em segurança e previsibilidade
           </motion.p>
         </motion.div>
 

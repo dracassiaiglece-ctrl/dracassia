@@ -242,7 +242,7 @@ const Hero = () => {
               <div className="flex items-center justify-center gap-3 mb-3">
                 <div className="h-px w-8 bg-primary/60" />
                 <span className="text-gold-light text-[10px] font-medium tracking-[0.25em] uppercase">
-                  Advocacia & Consultoria Jurídica
+                  DIREITO DE FAMÍLIA E SUCESSÕES
                 </span>
               </div>
 
@@ -252,16 +252,15 @@ const Hero = () => {
                   Escritório
                 </span>
                 <h1 className="text-4xl sm:text-5xl font-playfair font-bold leading-[0.95] tracking-tight">
-                  <span className="text-white">Cássia</span>
-                  <span className="block text-primary mt-1">Iglece</span>
+                  <span className="text-white">Advocacia</span>
+                  <span className="block text-primary mt-1">Familiarista</span>
                 </h1>
               </div>
 
               {/* Descrição */}
               <p className="text-sm text-white/85 leading-relaxed mb-6 max-w-xs px-4">
-                Atendimento especializado em{" "}
-                <span className="text-white font-medium">Direito de Família e Sucessões</span>,{" "}
-                com sensibilidade, técnica e estratégia jurídica.
+                Especializada em resolução de Conflitos Familiares. Atuamos com sensibilidade,
+                técnica e estratégia jurídica para proteger seus direitos e seu patrimônio.
               </p>
 
               {/* Botões */}
@@ -293,7 +292,7 @@ const Hero = () => {
               <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-10">
                 <div className="h-px w-8 md:w-10 bg-primary/60" />
                 <span className="text-gold-light text-[10px] md:text-[11px] font-medium tracking-[0.25em] md:tracking-[0.3em] uppercase">
-                  Advocacia & Consultoria Jurídica
+                  DIREITO DE FAMÍLIA E SUCESSÕES
                 </span>
               </div>
 
@@ -303,16 +302,15 @@ const Hero = () => {
                   Escritório
                 </span>
                 <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-playfair font-bold leading-[0.95] md:leading-[0.9] tracking-tight">
-                  <span className="text-white">Cássia</span>
-                  <span className="block text-primary mt-1 md:mt-2">Iglece</span>
+                  <span className="text-white">Advocacia</span>
+                  <span className="block text-primary mt-1 md:mt-2">Familiarista</span>
                 </h1>
               </div>
 
               {/* Descrição */}
               <p className="text-sm md:text-base lg:text-lg text-white/70 md:text-white/60 leading-relaxed mb-8 md:mb-12 max-w-md">
-                Atendimento especializado em{" "}
-                <span className="text-white/95 md:text-white/90 font-medium">Direito de Família e Sucessões</span>,{" "}
-                com sensibilidade, técnica e estratégia jurídica.
+                Especializada em resolução de Conflitos Familiares. Atuamos com sensibilidade,
+                técnica e estratégia jurídica para proteger seus direitos e seu patrimônio.
               </p>
 
               {/* Botões */}
