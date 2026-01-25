@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Instagram, Linkedin, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, MessageCircle } from "lucide-react";
 import Logo from "./Logo";
 import { useRef, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -171,15 +171,6 @@ const Footer = () => {
                 className="text-white/70 hover:text-gold-400 transition-colors duration-300"
               >
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="text-white/70 hover:text-gold-400 transition-colors duration-300"
-              >
-                <Linkedin className="w-5 h-5" />
               </a>
               <a
                 href="https://wa.me/5571993523075"

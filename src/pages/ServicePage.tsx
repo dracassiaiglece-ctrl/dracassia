@@ -40,13 +40,9 @@ const ServicePage = () => {
     );
   }
 
-  const Icon = service.icon;
-
   const openWhatsApp = () => {
     const phoneNumber = "5571993523075";
-    const message = encodeURIComponent(
-      `Olá! Gostaria de saber mais informações sobre ${service.title}.`
-    );
+    const message = encodeURIComponent(`Olá, preciso de atendimento jurídico em ${service.title}`);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     const opened = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     if (opened) opened.opener = null;
@@ -92,12 +88,11 @@ const ServicePage = () => {
 
       <Header />
       <main className="min-h-screen bg-wine-deep">
-        {/* Hero Section da Página */}
-        <section className="relative py-20 md:py-28 overflow-hidden">
+        <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-wine-deep" />
           
           <div 
-            className="absolute top-0 left-0 right-0 h-32 pointer-events-none" 
+            className="absolute top-0 left-0 right-0 h-40 pointer-events-none" 
             style={{
               background: "linear-gradient(to bottom, hsl(var(--background) / 0.9), transparent)",
             }}
@@ -108,97 +103,101 @@ const ServicePage = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="max-w-4xl mx-auto"
+              className="max-w-7xl mx-auto pt-32 md:pt-36 pb-14 md:pb-18"
             >
-              {/* Botão Voltar - com espaçamento adequado do header */}
-              <div className="pt-32 md:pt-36 mb-12 md:mb-10">
+              <div className="mb-10 md:mb-12">
                 <Link
                   to="/#areas"
                   onClick={handleBackToAreas}
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+                  className="inline-flex items-center gap-2 text-white/60 hover:text-primary transition-colors group"
                 >
                   <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                  <span className="text-sm">Voltar para áreas de atuação</span>
+                  <span className="text-sm">Voltar</span>
                 </Link>
               </div>
 
-              {/* Badge */}
-              <div className="flex items-center justify-center gap-3 mb-8">
-                <div className="h-px w-8 md:w-12 bg-primary/60" />
-                <span className="text-primary/90 text-[10px] md:text-xs font-medium tracking-[0.25em] uppercase">
+              <div className="max-w-3xl">
+                <span className="block text-primary/90 text-[10px] md:text-xs font-semibold tracking-[0.25em] uppercase mb-4">
                   Área de Atuação
                 </span>
-                <div className="h-px w-8 md:w-12 bg-primary/60" />
-              </div>
 
-              {/* Ícone e Título */}
-              <div className="flex flex-col items-center justify-center gap-6 md:flex-row md:gap-4 mb-8 md:mb-6">
-                <div className="w-16 h-16 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                  <Icon className="w-8 h-8 text-primary" strokeWidth={2} />
-                </div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-playfair font-bold text-foreground text-center">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-white leading-[1.05] mb-6">
                   {service.title}
                 </h1>
-              </div>
 
-              {/* Descrição */}
-              <p className="text-base md:text-lg text-muted-foreground text-center mb-10 leading-relaxed max-w-3xl mx-auto">
-                {service.description}
-              </p>
+                <p className="text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl">
+                  {service.shortDescription}
+                </p>
+              </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Conteúdo Detalhado */}
-        <section className="relative py-12 md:py-20">
+        <section className="relative pb-20 md:pb-28">
           <div className="container mx-auto px-6 md:px-8 lg:px-16 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="max-w-4xl mx-auto"
+              className="max-w-7xl mx-auto"
             >
-              <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-8 md:p-10">
-                <h2 className="text-2xl md:text-3xl font-playfair font-bold text-foreground mb-6">
-                  Como podemos ajudar
-                </h2>
-
-                <div className="space-y-4 mb-8">
-                  {service.details.map((detail, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="flex items-start gap-3"
-                    >
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <p className="text-muted-foreground leading-relaxed">{detail}</p>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* CTA WhatsApp */}
-                <div className="pt-8 border-t border-white/10">
-                  <div className="bg-primary/10 border border-primary/20 rounded-xl p-6 md:p-8 text-center">
-                    <h3 className="text-xl md:text-2xl font-playfair font-bold text-foreground mb-3">
-                      Quer saber mais sobre este serviço?
-                    </h3>
-                    <p className="text-muted-foreground mb-6">
-                      Entre em contato conosco pelo WhatsApp e tire todas as suas dúvidas. 
-                      Estamos prontos para ajudá-lo com dedicação e excelência.
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14">
+                <div className="lg:col-span-2 space-y-12">
+                  <section className="space-y-5">
+                    <h2 className="text-2xl md:text-3xl font-playfair font-bold text-white">
+                      Sobre
+                    </h2>
+                    <p className="text-gray-300 leading-relaxed">
+                      {service.description}
                     </p>
-                    <button
-                      onClick={openWhatsApp}
-                      className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-gold-light text-wine-deep font-semibold text-sm md:text-base tracking-wide px-8 md:px-10 py-4 md:py-5 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_hsl(var(--primary)/0.35)] hover:-translate-y-0.5"
-                    >
-                      <MessageCircle className="w-5 h-5" strokeWidth={2.5} />
-                      <span>Falar com Especialista</span>
-                    </button>
-                  </div>
+                  </section>
+
+                  {service.details.length > 0 && (
+                    <section className="space-y-6">
+                      <h2 className="text-2xl md:text-3xl font-playfair font-bold text-white">
+                        Como podemos ajudar
+                      </h2>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {service.details.map((detail, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 14 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.04 }}
+                            className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10"
+                          >
+                            <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                            <p className="text-gray-300 leading-relaxed">{detail}</p>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </section>
+                  )}
                 </div>
+
+                <aside className="lg:col-span-1">
+                  <div className="lg:sticky lg:top-28">
+                    <div className="bg-white/5 border border-primary/20 rounded-2xl p-6 md:p-8">
+                      <h3 className="text-2xl font-playfair font-bold text-white mb-3">
+                        Precisa de orientação?
+                      </h3>
+                      <p className="text-gray-300 leading-relaxed mb-7">
+                        {`Nossos especialistas em ${service.title} estão prontos para analisar seu caso.`}
+                      </p>
+
+                      <button
+                        onClick={openWhatsApp}
+                        className="w-full inline-flex items-center justify-center gap-2.5 bg-primary hover:bg-primary/90 text-wine-deep font-semibold text-sm md:text-base px-5 py-4 rounded-xl transition-colors"
+                      >
+                        <MessageCircle className="w-5 h-5" strokeWidth={2.5} />
+                        <span>Falar com Especialista</span>
+                      </button>
+                    </div>
+                  </div>
+                </aside>
               </div>
             </motion.div>
           </div>

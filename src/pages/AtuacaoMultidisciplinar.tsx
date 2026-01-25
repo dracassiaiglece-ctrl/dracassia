@@ -3,10 +3,13 @@ import { useEffect, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Briefcase, ArrowRight } from "lucide-react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
 import { multidisciplinaryAreas } from "@/data/multidisciplinaryAreas";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const AtuacaoMultidisciplinar = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -21,14 +24,43 @@ const AtuacaoMultidisciplinar = () => {
 
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray<HTMLElement>("[data-animate='card']");
-      gsap.set(cards, { autoAlpha: 0, y: 50 });
-      gsap.to(cards, {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.1,
+      const triggers: ScrollTrigger[] = [];
+
+      gsap.set(cards, { autoAlpha: 0, y: 30 });
+
+      cards.forEach((card) => {
+        const trigger = ScrollTrigger.create({
+          trigger: card,
+          start: "top 90%",
+          onEnter: () => {
+            gsap.to(card, {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.45,
+              ease: "power2.out",
+              overwrite: true,
+            });
+          },
+          onEnterBack: () => {
+            gsap.to(card, {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.3,
+              ease: "power2.out",
+              overwrite: true,
+            });
+          },
+          once: true,
+        });
+
+        triggers.push(trigger);
       });
+
+      ScrollTrigger.refresh();
+
+      return () => {
+        triggers.forEach((t) => t.kill());
+      };
     }, root);
 
     return () => {
