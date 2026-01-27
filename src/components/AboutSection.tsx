@@ -1,6 +1,6 @@
 import { CheckCircle } from "lucide-react";
 import aboutSectionBg from "@/assets/aboutsection.webp";
-import aboutMobile from "@/assets/aboutmobile.jpg";
+import aboutMobile from "@/assets/aboutsection.webp";
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -76,7 +76,7 @@ const AboutSection = () => {
               <img
                 src={aboutSectionBg}
                 alt="Dra. Cássia Iglece"
-                className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-cover object-[50%_25%] origin-top transition-transform duration-300 group-hover:scale-105"
                 style={{ display: "block" }}
                 loading="lazy"
                 decoding="async"

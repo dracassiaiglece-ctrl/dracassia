@@ -2,15 +2,10 @@ import { useEffect, useRef } from "react";
 import { MessageCircle, ChevronDown } from "lucide-react";
 import heroBg from "@/assets/hero-bg2.jpeg";
 import draCassia from "@/assets/Dra.-Cassia-2.webp";
-import draCassiaWebp from "@/assets/Dra. Cassia.webp";
-import pagina1 from "@/assets/pagina 1.png";
-import pagina2 from "@/assets/pagina 2.png";
 
 const Hero = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const draRef = useRef<HTMLDivElement>(null);
-  const pagina1Ref = useRef<HTMLDivElement>(null);
-  const pagina2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let ticking = false;
@@ -87,20 +82,6 @@ const Hero = () => {
         draRef.current.style.transform = `translate3d(${draX}px, ${draY + scrollParallax}px, 0)`;
       }
 
-      // Página 1 - movimento individual
-      if (pagina1Ref.current) {
-        const page1X = -moveX * intensity * 0.6; // Movimento mais sutil
-        const page1Y = -moveY * intensity * 0.6;
-        pagina1Ref.current.style.transform = `translate3d(${page1X}px, ${page1Y}px, 0)`;
-      }
-
-      // Página 2 - movimento individual
-      if (pagina2Ref.current) {
-        const page2X = -moveX * intensity * 0.6; // Movimento mais sutil
-        const page2Y = -moveY * intensity * 0.6;
-        pagina2Ref.current.style.transform = `translate3d(${page2X}px, ${page2Y}px, 0)`;
-      }
-
       animationFrame = requestAnimationFrame(animate);
     };
 
@@ -143,7 +124,6 @@ const Hero = () => {
           style={{ objectPosition: "center center" }}
           loading="eager"
           decoding="async"
-          fetchPriority="high"
         />
         {/* Overlays */}
         <div className="absolute inset-0 bg-background/65" />
@@ -152,43 +132,7 @@ const Hero = () => {
         
         {/* Mobile: Overlay mais forte para melhor contraste */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background/85 md:hidden" />
-        
-        {/* Página 1 - Lado esquerdo (segundo plano) */}
-        <div 
-          ref={pagina1Ref}
-          className="absolute bottom-[45%] left-[62%] hidden md:block will-change-transform z-[1]"
-        >
-          <img
-            src={pagina1}
-            alt="Elemento decorativo do hero"
-            className="max-w-[250px] w-auto h-auto object-contain opacity-60"
-            loading="lazy"
-            decoding="async"
-            style={{
-              filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.4))",
-              transition: "transform 0.1s ease-out"
-            }}
-          />
-        </div>
 
-        {/* Página 2 - Lado direito (segundo plano) */}
-        <div 
-          ref={pagina2Ref}
-          className="absolute bottom-[22%] left-[70%] hidden md:block will-change-transform z-[1]"
-        >
-          <img
-            src={pagina2}
-            alt="Elemento decorativo do hero"
-            className="w-[1500px] h-auto object-contain opacity-80"
-            loading="lazy"
-            decoding="async"
-            style={{
-              filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.4))",
-              transition: "transform 0.1s ease-out"
-            }}
-          />
-        </div>
-        
         {/* Foto da Dra. Cássia - Desktop: com parallax invertido (sobe ao rolar) */}
         <div
           ref={draRef}
@@ -208,9 +152,9 @@ const Hero = () => {
         </div>
 
         {/* Foto da Dra. Cássia - Mobile: centralizada e posicionada abaixo do conteúdo */}
-        <div className="absolute top-[48%] left-1/2 -translate-x-1/2 h-[52vh] max-h-[550px] min-h-[380px] md:hidden will-change-transform z-[2]">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[45vh] sm:h-[50vh] max-h-[520px] min-h-[400px] md:hidden will-change-transform z-[2] pointer-events-none select-none">
           <img
-            src={draCassiaWebp}
+            src={draCassia}
             alt="Dra. Cássia Iglece"
             className="h-full w-auto object-contain mx-auto"
             decoding="async"
@@ -341,7 +285,7 @@ const Hero = () => {
         {/* Scroll indicator */}
         <button
           onClick={() => scrollToSection("#sobre")}
-          className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-3 text-white/40 md:text-white/30 hover:text-primary/70 transition-colors cursor-pointer group"
+          className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-30 hidden md:flex flex-col items-center gap-3 text-white/40 md:text-white/30 hover:text-primary/70 transition-colors cursor-pointer group"
           aria-label="Rolar para baixo"
         >
           <div className="w-6 h-10 rounded-full border border-current flex items-start justify-center p-2">
