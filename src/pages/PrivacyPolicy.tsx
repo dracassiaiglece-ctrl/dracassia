@@ -1,33 +1,51 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="min-h-screen bg-wine-deep">
-      <Header />
-      <main className="pt-28 md:pt-32 pb-16">
-        <div className="container-custom px-6 md:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-10">
-              <Link
-                to="/"
-                className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-gold-400 transition-colors"
-              >
-                Voltar para a Home
-              </Link>
-            </div>
+    <>
+      <Helmet>
+        <title>Política de Privacidade | Dra. Cássia Iglece</title>
+        <meta name="description" content="Política de Privacidade e Termos de Uso do site da Dra. Cássia Iglece." />
+        <link rel="canonical" href="https://cassiaiglece.adv.br/privacidade" />
+        <meta name="robots" content="index,follow" />
+        <meta property="og:title" content="Política de Privacidade | Dra. Cássia Iglece" />
+        <meta
+          property="og:description"
+          content="Política de Privacidade e Termos de Uso do site da Dra. Cássia Iglece."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="pt_BR" />
+        <meta property="og:url" content="https://cassiaiglece.adv.br/privacidade" />
+        <meta property="og:site_name" content="Dra. Cássia Iglece" />
+      </Helmet>
 
-            <h1 className="font-playfair text-3xl md:text-4xl font-bold text-foreground mb-6">
-              <span className="text-primary">Política de Privacidade</span> e Termos de Uso
-            </h1>
+      <div className="min-h-screen bg-wine-deep">
+        <Header />
+        <main className="pt-28 md:pt-32 pb-16">
+          <div className="container-custom px-6 md:px-8">
+            <div className="max-w-4xl mx-auto">
+              <div className="mb-10">
+                <Link
+                  to="/"
+                  className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-gold-400 transition-colors"
+                >
+                  Voltar para a Home
+                </Link>
+              </div>
 
-            <p className="text-gray-300 text-sm md:text-base leading-relaxed text-justify mb-10">
-              A sua privacidade é importante para nós. É política do escritório Dra. Cássia Iglece
-              respeitar a sua privacidade em relação a qualquer informação que possamos coletar.
-            </p>
+              <h1 className="font-playfair text-3xl md:text-4xl font-bold text-foreground mb-6">
+                <span className="text-primary">Política de Privacidade</span> e Termos de Uso
+              </h1>
 
-            <div className="space-y-10">
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed text-justify mb-10">
+                A sua privacidade é importante para nós. É política do escritório Dra. Cássia Iglece
+                respeitar a sua privacidade em relação a qualquer informação que possamos coletar.
+              </p>
+
+              <div className="space-y-10">
               <section>
                 <h2 className="font-playfair text-xl md:text-2xl font-semibold text-primary mb-3">
                   1. Coleta de Dados
@@ -98,9 +116,9 @@ const PrivacyPolicy = () => {
         </div>
       </main>
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 
 export default PrivacyPolicy;
-

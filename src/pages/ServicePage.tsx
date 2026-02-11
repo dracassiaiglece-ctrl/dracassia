@@ -68,10 +68,12 @@ const ServicePage = () => {
     }, 150);
   };
 
+  const canonicalUrl = `https://cassiaiglece.adv.br/servicos/${service.slug}`;
+
   return (
     <>
       <Helmet>
-        <title>{service.title} | Cássia Iglece Advocacia</title>
+        <title>{service.title} | Dra. Cássia Iglece</title>
         <meta
           name="description"
           content={service.shortDescription}
@@ -80,10 +82,51 @@ const ServicePage = () => {
           name="keywords"
           content={service.keywords.join(", ")}
         />
-        <link rel="canonical" href={`https://cassiaiglece.adv.br/servicos/${service.slug}`} />
-        <meta property="og:title" content={`${service.title} | Cássia Iglece Advocacia`} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+        <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+        <meta property="og:title" content={`${service.title} | Dra. Cássia Iglece`} />
         <meta property="og:description" content={service.shortDescription} />
         <meta property="og:type" content="website" />
+        <meta property="og:locale" content="pt_BR" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:site_name" content="Dra. Cássia Iglece" />
+        <meta property="og:image" content="https://cassiaiglece.adv.br/icon.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${service.title} | Dra. Cássia Iglece`} />
+        <meta name="twitter:description" content={service.shortDescription} />
+        <meta name="twitter:image" content="https://cassiaiglece.adv.br/icon.png" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: service.title,
+            description: service.shortDescription,
+            url: canonicalUrl,
+            areaServed: [
+              { "@type": "City", name: "Salvador" },
+              { "@type": "State", name: "Bahia" },
+              { "@type": "Country", name: "Brasil" },
+            ],
+            provider: {
+              "@type": "LegalService",
+              name: "Cássia Iglece Advocacia",
+              url: "https://cassiaiglece.adv.br",
+              image: "https://cassiaiglece.adv.br/icon.png",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Salvador",
+                addressRegion: "BA",
+                addressCountry: "BR",
+              },
+              telephone: "+55-71-99352-3075",
+              email: "cassiaiglece.adv@gmail.com",
+              sameAs: ["https://www.instagram.com/cassiaigleceadv_/"],
+            },
+            serviceType: service.title,
+            keywords: service.keywords,
+          })}
+        </script>
       </Helmet>
 
       <Header />

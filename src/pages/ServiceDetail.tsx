@@ -60,11 +60,57 @@ const ServiceDetail = () => {
     );
   }
 
+  const canonicalUrl = `https://cassiaiglece.adv.br/atuacao-multidisciplinar/${slug}`;
+
   return (
     <>
       <Helmet>
         <title>{title} | Atuação Multidisciplinar</title>
         <meta name="description" content={intro} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+        <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+        <meta property="og:title" content={`${title} | Atuação Multidisciplinar`} />
+        <meta property="og:description" content={intro} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="pt_BR" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:site_name" content="Dra. Cássia Iglece" />
+        <meta property="og:image" content="https://cassiaiglece.adv.br/icon.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${title} | Atuação Multidisciplinar`} />
+        <meta name="twitter:description" content={intro} />
+        <meta name="twitter:image" content="https://cassiaiglece.adv.br/icon.png" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: title,
+            description: intro,
+            url: canonicalUrl,
+            areaServed: [
+              { "@type": "City", name: "Salvador" },
+              { "@type": "State", name: "Bahia" },
+              { "@type": "Country", name: "Brasil" },
+            ],
+            provider: {
+              "@type": "LegalService",
+              name: "Cássia Iglece Advocacia",
+              url: "https://cassiaiglece.adv.br",
+              image: "https://cassiaiglece.adv.br/icon.png",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Salvador",
+                addressRegion: "BA",
+                addressCountry: "BR",
+              },
+              telephone: "+55-71-99352-3075",
+              email: "cassiaiglece.adv@gmail.com",
+              sameAs: ["https://www.instagram.com/cassiaigleceadv_/"],
+            },
+            serviceType: title,
+          })}
+        </script>
       </Helmet>
 
       <Header />

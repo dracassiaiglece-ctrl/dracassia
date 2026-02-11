@@ -46,9 +46,8 @@ const FloatingButtons = () => {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
       <AnimatePresence>
         {!isMobileMenuOpen && (
-          <motion.button
-            onClick={openWhatsApp}
-            className="w-14 h-14 rounded-full bg-gold-400 hover:bg-gold-400/90 text-wine-deep shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group relative overflow-hidden"
+          <motion.div
+            className="relative group"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 20 }}
@@ -56,20 +55,35 @@ const FloatingButtons = () => {
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.2 }}
           >
-            <MessageCircle className="w-6 h-6" strokeWidth={2.5} />
-            <motion.div
-              className="absolute inset-0 rounded-full bg-gold-400"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.5, 0, 0.5],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          </motion.button>
+            <div className="hidden md:block pointer-events-none absolute right-[4.25rem] top-1/2 -translate-y-1/2 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">
+              <div className="whitespace-nowrap rounded-lg bg-wine-deep/95 border border-white/10 px-3 py-2 shadow-lg backdrop-blur-sm">
+                <span className="text-xs text-white/90 font-medium">Precisa de ajuda? Fale comigo</span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={openWhatsApp}
+              aria-label="Falar no WhatsApp"
+              className="w-14 h-14 rounded-full bg-gold-400 hover:bg-gold-400/90 text-wine-deep shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center relative overflow-hidden"
+            >
+              <span className="relative z-10">
+                <MessageCircle className="w-6 h-6" strokeWidth={2.5} />
+              </span>
+              <motion.div
+                className="absolute inset-0 rounded-full bg-gold-400 z-0"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.5, 0, 0.5],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            </button>
+          </motion.div>
         )}
       </AnimatePresence>
 
@@ -95,7 +109,6 @@ const FloatingButtons = () => {
 };
 
 export default FloatingButtons;
-
 
 
 
