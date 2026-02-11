@@ -10,6 +10,7 @@ import {
   HandHeart,
   Home,
   Gift,
+  Globe,
   type LucideIcon,
 } from "lucide-react";
 
@@ -100,6 +101,32 @@ export const services: Service[] = [
       "Acompanhamento em processos de guarda litigiosa",
     ],
     keywords: ["guarda de filhos", "guarda compartilhada", "visitação", "direito parental"],
+  },
+  {
+    id: "familia-internacional",
+    slug: "direito-de-familia-internacional",
+    icon: Globe,
+    title: "Direito de Família Internacional",
+    shortDescription:
+      "Atuação especializada em demandas familiares com elementos internacionais, quando uma ou mais partes residem no exterior ou possuem vínculos com diferentes países.",
+    description:
+      "Atuação especializada em demandas familiares com elementos internacionais, quando uma ou mais partes residem no exterior ou possuem vínculos com diferentes países. Conduzimos o caso com estratégia, organização documental e atenção às particularidades de cada jurisdição, priorizando segurança jurídica e efetividade das medidas.",
+    details: [
+      "Casamento internacional",
+      "Divórcio e partilha de bens em contexto internacional",
+      "Guarda internacional de crianças e adolescentes",
+      "Pensão alimentícia (alimentos) em âmbito internacional",
+      "Convivência familiar transnacional",
+      "Mudança internacional de residência de crianças e adolescentes",
+      "Subtração internacional de crianças (Convenção de Haia de 1980)",
+    ],
+    keywords: [
+      "direito de família internacional",
+      "guarda internacional",
+      "alimentos internacionais",
+      "convenção de haia 1980",
+      "divórcio internacional",
+    ],
   },
   {
     id: "uniao-estavel",
@@ -239,7 +266,6 @@ export const services: Service[] = [
 export const getServiceBySlug = (slug: string): Service | undefined => {
   return services.find((service) => service.slug === slug);
 };
-
 
 
 

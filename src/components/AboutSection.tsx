@@ -7,12 +7,26 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const qualifications = [
-  "Formada pela Universidade Católica do Salvador (UCSAL)",
-  "Pós-graduação em Advocacia no Direito de Família e Sucessões",
-  "MBA em Direito da Família e Planejamento Sucessório (em curso)",
-  "Conselheira Consultiva da OAB Jovem Bahia",
-  "Atuação focada em Direito de Família e Sucessões",
+const academicDevelopment = [
+  {
+    title: "Pós-graduação em Direito das Mulheres",
+    subtitle: "Escola Mineira de Direito (EMD)",
+    status: "Cursando",
+  },
+  {
+    title: "MBA (ênfase em Direito e Gestão Jurídica)",
+    status: "Cursando",
+  },
+  {
+    title: "Mentoria em Direito Internacional de Família",
+    subtitle: "com a Dra. Flávia Deutschmann",
+    status: "Cursando",
+  },
+  {
+    title: "Mestrado em Direito (foco em Direito de Família)",
+    subtitle: "Planejado, com início previsto para 2027",
+    status: "Em planejamento",
+  },
 ];
 
 const AboutSection = () => {
@@ -107,9 +121,9 @@ const AboutSection = () => {
 
               <p className="text-sm lg:text-base text-muted-foreground leading-relaxed lg:leading-loose">
                 Formada pela Universidade Católica do Salvador (UCSAL), possui pós-graduação em
-                Advocacia no <strong className="text-foreground/95">Direito de Família e Sucessões</strong> e atualmente cursa MBA em Direito da
-                Família e Planejamento Sucessório, com ênfase em <strong className="text-foreground/95">soluções jurídicas preventivas</strong>,
-                organização patrimonial e segurança jurídica nas relações familiares.
+                Advocacia no <strong className="text-foreground/95">Direito de Família e Sucessões</strong>. Mantém aperfeiçoamento
+                acadêmico contínuo, com cursos e formações em andamento voltados a temas atuais e
+                sensíveis do Direito de Família.
               </p>
 
               <p className="text-sm lg:text-base text-muted-foreground leading-relaxed lg:leading-loose">
@@ -121,16 +135,39 @@ const AboutSection = () => {
               </p>
             </div>
 
-            <div className="space-y-2 lg:space-y-3 mt-4 lg:mt-5 mb-4 lg:mb-5">
-              {qualifications.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-start gap-3 lg:gap-4 pb-2 lg:pb-3 border-b border-border/30 last:border-0"
-                >
-                  <CheckCircle className="w-5 h-5 lg:w-6 lg:h-6 text-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-sm lg:text-base text-foreground/90 leading-relaxed">{item}</span>
+            <div className="mt-6 lg:mt-7">
+              <div className="rounded-2xl border border-primary/15 bg-white/[0.02] px-5 lg:px-6 py-5 lg:py-6">
+                <h3 className="text-base lg:text-lg font-playfair font-bold text-foreground mb-3">
+                  Formação e Aperfeiçoamento Acadêmico
+                </h3>
+                <div className="space-y-3">
+                  {academicDevelopment.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-3 pb-3 border-b border-primary/10 last:border-0 last:pb-0"
+                    >
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                          <span className="text-sm lg:text-base text-foreground/90 leading-relaxed">
+                            {item.title}
+                          </span>
+                          {item.status ? (
+                            <span className="inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-[10px] lg:text-[11px] font-semibold tracking-wide text-primary">
+                              {item.status}
+                            </span>
+                          ) : null}
+                        </div>
+                        {item.subtitle ? (
+                          <div className="text-xs lg:text-sm text-muted-foreground leading-relaxed mt-0.5">
+                            {item.subtitle}
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
 
             <div className="pt-4 lg:pt-5 border-t border-border">
@@ -138,7 +175,7 @@ const AboutSection = () => {
                 <div className="flex flex-col">
                   <span className="text-[10px] lg:text-xs text-muted-foreground uppercase tracking-wider mb-1">Registro OAB</span>
                   <span className="font-playfair text-xl lg:text-2xl font-bold text-foreground">
-                    OAB/BA 87.711
+                    OAB/SP 398.768
                   </span>
                 </div>
               </div>
@@ -237,9 +274,9 @@ const AboutSection = () => {
 
                   <p className="text-sm text-muted-foreground" style={{ lineHeight: '1.7' }}>
                     Formada pela Universidade Católica do Salvador (UCSAL), possui pós-graduação em
-                    Advocacia no <strong className="text-foreground/95">Direito de Família e Sucessões</strong> e atualmente cursa MBA em Direito da
-                    Família e Planejamento Sucessório, com ênfase em <strong className="text-foreground/95">soluções jurídicas preventivas</strong>,
-                    organização patrimonial e segurança jurídica nas relações familiares.
+                    Advocacia no <strong className="text-foreground/95">Direito de Família e Sucessões</strong>. Mantém aperfeiçoamento
+                    acadêmico contínuo, com cursos e formações em andamento voltados a temas atuais e
+                    sensíveis do Direito de Família.
                   </p>
 
                   <p className="text-sm text-muted-foreground" style={{ lineHeight: '1.7' }}>
@@ -250,19 +287,41 @@ const AboutSection = () => {
                   </p>
                 </div>
 
-                {/* Qualificações com design refinado */}
-                <div className="space-y-3 mb-6">
-                  {qualifications.map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex items-start gap-3 py-2.5 border-b border-primary/10 last:border-0"
-                    >
-                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
-                        <CheckCircle className="w-3.5 h-3.5 text-primary" />
-                      </div>
-                      <span className="text-foreground/85 leading-relaxed text-sm">{item}</span>
+                <div className="mb-6">
+                  <div className="rounded-2xl border border-primary/15 bg-white/[0.02] px-4 py-4">
+                    <h3 className="text-base font-playfair font-bold text-foreground mb-3">
+                      Formação e Aperfeiçoamento Acadêmico
+                    </h3>
+                    <div className="space-y-3">
+                      {academicDevelopment.map((item, index) => (
+                        <div
+                          key={index}
+                          className="flex items-start gap-3 pb-3 border-b border-primary/10 last:border-0 last:pb-0"
+                        >
+                          <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
+                            <CheckCircle className="w-3.5 h-3.5 text-primary" />
+                          </div>
+                          <div className="min-w-0">
+                            <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                              <span className="text-foreground/90 leading-relaxed text-sm">
+                                {item.title}
+                              </span>
+                              {item.status ? (
+                                <span className="inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-primary">
+                                  {item.status}
+                                </span>
+                              ) : null}
+                            </div>
+                            {item.subtitle ? (
+                              <div className="text-xs text-muted-foreground leading-relaxed mt-0.5">
+                                {item.subtitle}
+                              </div>
+                            ) : null}
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
 
                 {/* OAB Badge */}
@@ -274,7 +333,7 @@ const AboutSection = () => {
                     <div className="flex flex-col">
                       <span className="text-[10px] text-muted-foreground uppercase tracking-widest mb-0.5">Registro</span>
                       <span className="font-playfair text-xl font-bold text-foreground">
-                        OAB/BA 87.711
+                        OAB/SP 398.768
                       </span>
                     </div>
                   </div>

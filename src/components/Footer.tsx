@@ -196,12 +196,12 @@ const Footer = () => {
             <p className="text-xs text-muted-foreground">
               Desenvolvido por:{" "}
               <a
-                href="https://www.welziinho.com"
+                href="https://studiooryon.pro/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:text-white transition-colors"
               >
-                Wesley Sacramento
+                Studio Oryon
               </a>
             </p>
           </div>

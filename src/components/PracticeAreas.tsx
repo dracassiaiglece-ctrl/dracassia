@@ -1,5 +1,5 @@
 import { MessageCircle, ArrowRight } from "lucide-react";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { services } from "@/data/services";
@@ -9,6 +9,10 @@ const PracticeAreas = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
+
+  const sortedServices = useMemo(() => {
+    return [...services].sort((a, b) => a.title.localeCompare(b.title, "pt-BR"));
+  }, []);
 
   const openWhatsApp = (areaTitle: string) => {
     const phoneNumber = "5571993523075";
@@ -118,7 +122,7 @@ const PracticeAreas = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-7xl mx-auto"
         >
-          {services.map((service, index) => {
+          {sortedServices.map((service) => {
             const Icon = service.icon;
             return (
               <motion.div
