@@ -19,7 +19,7 @@ const academicDevelopment = [
   },
   {
     title: "Mentoria em Direito Internacional de Família",
-    subtitle: "com a Dra. Flávia Deutschmann",
+    subtitle: "com a Dra. Flávia Deutschmann (OAB/SP 398.768)",
     status: "Cursando",
   },
   {
@@ -175,7 +175,7 @@ const AboutSection = () => {
                 <div className="flex flex-col">
                   <span className="text-[10px] lg:text-xs text-muted-foreground uppercase tracking-wider mb-1">Registro OAB</span>
                   <span className="font-playfair text-xl lg:text-2xl font-bold text-foreground">
-                    OAB/SP 398.768
+                    OAB/BA 87.711
                   </span>
                 </div>
               </div>
@@ -333,7 +333,7 @@ const AboutSection = () => {
                     <div className="flex flex-col">
                       <span className="text-[10px] text-muted-foreground uppercase tracking-widest mb-0.5">Registro</span>
                       <span className="font-playfair text-xl font-bold text-foreground">
-                        OAB/SP 398.768
+                        OAB/BA 87.711
                       </span>
                     </div>
                   </div>
