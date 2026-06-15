@@ -122,7 +122,7 @@ const AtuacaoMultidisciplinar = () => {
           name="description"
           content="Conheça as demais áreas de atuação oferecidas por meio de parceiros, com atendimento técnico e direcionado."
         />
-        <link rel="canonical" href="https://cassiaiglece.adv.br/atuacao-multidisciplinar" />
+        <link rel="canonical" href="https://cassiaiglece.com.br/atuacao-multidisciplinar" />
         <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
         <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
         <meta property="og:title" content="Atuação Multidisciplinar | Dra. Cássia" />
@@ -132,16 +132,16 @@ const AtuacaoMultidisciplinar = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="pt_BR" />
-        <meta property="og:url" content="https://cassiaiglece.adv.br/atuacao-multidisciplinar" />
+        <meta property="og:url" content="https://cassiaiglece.com.br/atuacao-multidisciplinar" />
         <meta property="og:site_name" content="Dra. Cássia Iglece" />
-        <meta property="og:image" content="https://cassiaiglece.adv.br/icon.png" />
+        <meta property="og:image" content="https://cassiaiglece.com.br/aboutmobile.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Atuação Multidisciplinar | Dra. Cássia" />
         <meta
           name="twitter:description"
           content="Conheça as demais áreas de atuação oferecidas por meio de parceiros, com atendimento técnico e direcionado."
         />
-        <meta name="twitter:image" content="https://cassiaiglece.adv.br/icon.png" />
+        <meta name="twitter:image" content="https://cassiaiglece.com.br/aboutmobile.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -150,7 +150,7 @@ const AtuacaoMultidisciplinar = () => {
               "@type": "ListItem",
               position: index + 1,
               name: area.title,
-              url: `https://cassiaiglece.adv.br/atuacao-multidisciplinar/${area.slug}`,
+              url: `https://cassiaiglece.com.br/atuacao-multidisciplinar/${area.slug}`,
             })),
           })}
         </script>

@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://cassiaiglece.adv.br/sitemap.xml
+Sitemap: https://cassiaiglece.com.br/sitemap.xml

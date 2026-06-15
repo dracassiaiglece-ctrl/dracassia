@@ -26,7 +26,7 @@ const Index = () => {
           name="keywords"
           content="advogada salvador ba, direito de família salvador, divórcio salvador, pensão alimentícia salvador, guarda de filhos salvador, inventário salvador, planejamento sucessório"
         />
-        <link rel="canonical" href="https://cassiaiglece.adv.br" />
+        <link rel="canonical" href="https://cassiaiglece.com.br" />
         <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
         <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
         <meta property="og:title" content="Dra. Cássia Iglece | Advogada em Salvador - BA" />
@@ -36,16 +36,16 @@ const Index = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="pt_BR" />
-        <meta property="og:url" content="https://cassiaiglece.adv.br" />
+        <meta property="og:url" content="https://cassiaiglece.com.br" />
         <meta property="og:site_name" content="Dra. Cássia Iglece" />
-        <meta property="og:image" content="https://cassiaiglece.adv.br/icon.png" />
+        <meta property="og:image" content="https://cassiaiglece.com.br/aboutmobile.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Dra. Cássia Iglece | Advogada em Salvador - BA" />
         <meta
           name="twitter:description"
           content="Atuação em Direito de Família e Sucessões em Salvador - BA. Atendimento humanizado, técnico e estratégico."
         />
-        <meta name="twitter:image" content="https://cassiaiglece.adv.br/icon.png" />
+        <meta name="twitter:image" content="https://cassiaiglece.com.br/aboutmobile.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -53,8 +53,8 @@ const Index = () => {
             name: "Cássia Iglece Advocacia",
             description:
               "Atuação em Direito de Família e Sucessões em Salvador - BA, com atendimento humanizado, técnico e estratégico.",
-            url: "https://cassiaiglece.adv.br",
-            image: "https://cassiaiglece.adv.br/icon.png",
+            url: "https://cassiaiglece.com.br",
+            image: "https://cassiaiglece.com.br/aboutmobile.jpg",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Salvador",

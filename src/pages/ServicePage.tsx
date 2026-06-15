@@ -68,7 +68,7 @@ const ServicePage = () => {
     }, 150);
   };
 
-  const canonicalUrl = `https://cassiaiglece.adv.br/servicos/${service.slug}`;
+  const canonicalUrl = `https://cassiaiglece.com.br/servicos/${service.slug}`;
 
   return (
     <>
@@ -91,11 +91,11 @@ const ServicePage = () => {
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:site_name" content="Dra. Cássia Iglece" />
-        <meta property="og:image" content="https://cassiaiglece.adv.br/icon.png" />
+        <meta property="og:image" content="https://cassiaiglece.com.br/aboutmobile.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${service.title} | Dra. Cássia Iglece`} />
         <meta name="twitter:description" content={service.shortDescription} />
-        <meta name="twitter:image" content="https://cassiaiglece.adv.br/icon.png" />
+        <meta name="twitter:image" content="https://cassiaiglece.com.br/aboutmobile.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -111,8 +111,8 @@ const ServicePage = () => {
             provider: {
               "@type": "LegalService",
               name: "Cássia Iglece Advocacia",
-              url: "https://cassiaiglece.adv.br",
-              image: "https://cassiaiglece.adv.br/icon.png",
+              url: "https://cassiaiglece.com.br",
+              image: "https://cassiaiglece.com.br/aboutmobile.jpg",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Salvador",

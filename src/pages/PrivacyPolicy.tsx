@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
       <Helmet>
         <title>Política de Privacidade | Dra. Cássia Iglece</title>
         <meta name="description" content="Política de Privacidade e Termos de Uso do site da Dra. Cássia Iglece." />
-        <link rel="canonical" href="https://cassiaiglece.adv.br/privacidade" />
+        <link rel="canonical" href="https://cassiaiglece.com.br/privacidade" />
         <meta name="robots" content="index,follow" />
         <meta property="og:title" content="Política de Privacidade | Dra. Cássia Iglece" />
         <meta
@@ -18,7 +18,7 @@ const PrivacyPolicy = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="pt_BR" />
-        <meta property="og:url" content="https://cassiaiglece.adv.br/privacidade" />
+        <meta property="og:url" content="https://cassiaiglece.com.br/privacidade" />
         <meta property="og:site_name" content="Dra. Cássia Iglece" />
       </Helmet>
 
