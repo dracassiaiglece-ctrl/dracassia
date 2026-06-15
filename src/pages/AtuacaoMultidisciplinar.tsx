@@ -134,14 +134,17 @@ const AtuacaoMultidisciplinar = () => {
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:url" content="https://cassiaiglece.com.br/atuacao-multidisciplinar" />
         <meta property="og:site_name" content="Dra. Cássia Iglece" />
-        <meta property="og:image" content="https://cassiaiglece.com.br/aboutmobile.jpg" />
+        <meta property="og:image" content="https://cassiaiglece.com.br/dra-cassia-iglece.jpg" />
+        <meta name="image" content="https://cassiaiglece.com.br/dra-cassia-iglece.jpg" />
+        <meta name="thumbnail" content="https://cassiaiglece.com.br/dra-cassia-iglece.jpg" />
+        <link rel="image_src" href="https://cassiaiglece.com.br/dra-cassia-iglece.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Atuação Multidisciplinar | Dra. Cássia" />
         <meta
           name="twitter:description"
           content="Conheça as demais áreas de atuação oferecidas por meio de parceiros, com atendimento técnico e direcionado."
         />
-        <meta name="twitter:image" content="https://cassiaiglece.com.br/aboutmobile.jpg" />
+        <meta name="twitter:image" content="https://cassiaiglece.com.br/dra-cassia-iglece.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

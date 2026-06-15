@@ -38,14 +38,17 @@ const Index = () => {
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:url" content="https://cassiaiglece.com.br" />
         <meta property="og:site_name" content="Dra. Cássia Iglece" />
-        <meta property="og:image" content="https://cassiaiglece.com.br/aboutmobile.jpg" />
+        <meta property="og:image" content="https://cassiaiglece.com.br/dra-cassia-iglece.jpg" />
+        <meta name="image" content="https://cassiaiglece.com.br/dra-cassia-iglece.jpg" />
+        <meta name="thumbnail" content="https://cassiaiglece.com.br/dra-cassia-iglece.jpg" />
+        <link rel="image_src" href="https://cassiaiglece.com.br/dra-cassia-iglece.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Dra. Cássia Iglece | Advogada em Salvador - BA" />
         <meta
           name="twitter:description"
           content="Atuação em Direito de Família e Sucessões em Salvador - BA. Atendimento humanizado, técnico e estratégico."
         />
-        <meta name="twitter:image" content="https://cassiaiglece.com.br/aboutmobile.jpg" />
+        <meta name="twitter:image" content="https://cassiaiglece.com.br/dra-cassia-iglece.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -54,7 +57,7 @@ const Index = () => {
             description:
               "Atuação em Direito de Família e Sucessões em Salvador - BA, com atendimento humanizado, técnico e estratégico.",
             url: "https://cassiaiglece.com.br",
-            image: "https://cassiaiglece.com.br/aboutmobile.jpg",
+            image: "https://cassiaiglece.com.br/dra-cassia-iglece.jpg",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Salvador",
