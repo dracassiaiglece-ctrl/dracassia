@@ -172,7 +172,7 @@ const Hero = () => {
       {/* Seção Hero*/}
       <section
         id="inicio"
-        className="relative h-screen min-h-[600px] md:min-h-[700px] flex md:items-center z-10 overflow-hidden"
+        className="relative min-h-screen flex md:items-center z-10 overflow-hidden pt-28 md:pt-36 pb-12 md:pb-16"
       >
         {/* Conteúdo principal */}
         <div
@@ -181,7 +181,7 @@ const Hero = () => {
         >
           <div className="container mx-auto px-6 md:px-8 lg:px-16 xl:px-24">
             {/* Mobile: Layout vertical com conteúdo no topo (área marcada em branco) */}
-            <div className="md:hidden flex flex-col items-center text-center pt-28 pb-0 relative z-30">
+            <div className="md:hidden flex flex-col items-center text-center pb-0 relative z-30">
               {/* Badge */}
               <div className="flex items-center justify-center gap-3 mb-3">
                 <div className="h-px w-8 bg-primary/60" />
