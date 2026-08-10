@@ -9,17 +9,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 const academicDevelopment = [
   {
-    title: "Pós-graduação em Direito das Mulheres",
-    subtitle: "Escola Mineira de Direito (EMD)",
-    status: "Cursando",
-  },
-  {
     title: "MBA (ênfase em Direito e Gestão Jurídica)",
-    status: "Cursando",
   },
   {
     title: "Mentoria em Direito Internacional de Família",
     subtitle: "com a Dra. Flávia Deutschmann (OAB/SP 398.768)",
+  },
+  {
+    title: "Curso de Planejamento Matrimonial",
+    subtitle: "com Vívian Ferreira Padilha Correia",
+  },
+  {
+    title: "Pós-graduação em Direito das Mulheres",
+    subtitle: "Escola Mineira de Direito (EMD)",
     status: "Cursando",
   },
   {
