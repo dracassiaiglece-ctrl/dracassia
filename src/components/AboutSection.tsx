@@ -40,7 +40,7 @@ const AboutSection = () => {
     const content = contentRef.current;
     if (!section || !content) return;
 
-    // Animar conteúdo
+
     gsap.fromTo(
       content,
       { opacity: 0, y: 50 },
@@ -72,23 +72,23 @@ const AboutSection = () => {
       id="sobre"
       className="relative w-full bg-wine-deep"
     >
-      {/* Desktop: Layout de 2 colunas - Imagem à esquerda, Texto à direita */}
+
       <div className="hidden lg:grid lg:grid-cols-2 gap-12 xl:gap-16 w-full min-h-screen">
-        {/* Coluna Esquerda: Imagem em Box Estilizada */}
+
         <div className="relative w-full h-full flex items-center justify-center p-3 lg:p-4 xl:p-6 bg-wine-deep">
           <div className="relative w-full h-full max-w-none group flex items-center justify-center">
-            {/* Container principal da imagem */}
+
             <div className="relative rounded-xl overflow-hidden border border-primary/20 shadow-[0_20px_50px_rgba(88,28,40,0.35)] transition-all duration-300 w-[95%] h-[85vh] max-h-[900px]">
-              {/* Borda interna dourada sutil */}
+
               <div className="absolute inset-0 border border-primary/15 rounded-xl pointer-events-none z-20" />
-              
-              {/* Cantos decorativos */}
+
+
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/35 rounded-tl-xl z-20 opacity-40" />
               <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/35 rounded-tr-xl z-20 opacity-40" />
               <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/35 rounded-bl-xl z-20 opacity-40" />
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/35 rounded-br-xl z-20 opacity-40" />
-              
-              {/* Imagem */}
+
+
               <img
                 src={aboutSectionBg}
                 alt="Dra. Cássia Iglece"
@@ -101,7 +101,7 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {/* Coluna Direita: Conteúdo com fundo sólido */}
+
         <div className="bg-wine-deep flex items-center py-4 lg:py-6 xl:py-8 px-5 lg:px-8 xl:px-10 min-h-screen">
           <div ref={contentRef} className="w-full max-w-xl mx-auto">
             <div className="mb-4 lg:mb-6">
@@ -186,29 +186,29 @@ const AboutSection = () => {
         </div>
       </div>
 
-      {/* Mobile: Layout integrado similar ao desktop - imagem com texto sobreposto */}
+
       <div className="lg:hidden relative bg-wine-deep">
-        {/* Container principal com imagem de fundo */}
+
         <div className="relative w-full">
-          {/* Imagem de fundo com efeitos premium */}
+
           <div className="relative w-full">
-            {/* Container da imagem com borda elegante */}
+
             <div className="relative mx-4 pt-0">
-              {/* Moldura decorativa externa */}
+
               <div className="absolute -inset-1 bg-gradient-to-br from-primary/30 via-primary/10 to-primary/30 rounded-2xl blur-sm" />
-              
-              {/* Container principal da imagem */}
+
+
               <div className="relative rounded-xl overflow-hidden shadow-2xl shadow-black/50">
-                {/* Borda interna dourada sutil */}
+
                 <div className="absolute inset-0 border border-primary/30 rounded-xl pointer-events-none z-20" />
-                
-                {/* Cantos decorativos */}
+
+
                 <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/50 rounded-tl-xl z-20" />
                 <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/50 rounded-tr-xl z-20" />
                 <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/50 rounded-bl-xl z-20" />
                 <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/50 rounded-br-xl z-20" />
-                
-                {/* Imagem */}
+
+
                 <img
                   src={aboutMobile}
                   alt="Dra. Cássia Iglece"
@@ -217,26 +217,26 @@ const AboutSection = () => {
                   loading="lazy"
                   decoding="async"
                 />
-                
-                {/* Overlay gradiente para integração com fundo */}
-                <div 
-                  className="absolute inset-0 z-10 pointer-events-none" 
+
+
+                <div
+                  className="absolute inset-0 z-10 pointer-events-none"
                   style={{
                     background:
                       "linear-gradient(to bottom, transparent 0%, transparent 60%, hsl(var(--background) / 0.3) 80%, hsl(var(--background) / 0.8) 95%, hsl(var(--background)) 100%)",
                   }}
                 />
-                
-                {/* Brilho sutil no topo */}
-                <div 
-                  className="absolute top-0 left-0 right-0 h-1/4 z-10 pointer-events-none" 
+
+
+                <div
+                  className="absolute top-0 left-0 right-0 h-1/4 z-10 pointer-events-none"
                   style={{
                     background: "linear-gradient(to bottom, hsl(var(--gold-glow) / 0.05) 0%, transparent 100%)",
                   }}
                 />
               </div>
-              
-              {/* Linha decorativa dourada abaixo da imagem */}
+
+
               <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2">
                 <div className="w-12 h-px bg-gradient-to-r from-transparent to-primary/60" />
                 <div className="w-2 h-2 rounded-full bg-primary/40" />
@@ -245,17 +245,17 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* Conteúdo textual abaixo da imagem */}
+
           <div className="relative bg-wine-deep pt-10 pb-8 px-5">
-            {/* Decoração de fundo sutil */}
+
             <div className="absolute inset-0 opacity-5">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-3xl" />
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
             </div>
-            
+
             <div className="max-w-2xl mx-auto relative z-10">
               <div ref={contentRef} className="relative">
-                {/* Header com badge */}
+
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-px w-6 bg-primary/60" />
                   <span className="text-xs text-primary font-semibold uppercase tracking-[0.2em]">
@@ -326,7 +326,7 @@ const AboutSection = () => {
                   </div>
                 </div>
 
-                {/* OAB Badge */}
+
                 <div className="pt-5 border-t border-primary/20">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">

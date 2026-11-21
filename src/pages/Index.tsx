@@ -87,9 +87,9 @@ const Index = () => {
         <Header />
         <main>
           <Hero />
-          {/* Wrapper com z-index e background para cobrir o fundo fixo */}
+
           <div className="relative z-10">
-            {/* Seção de transição suave entre Hero e AboutSection */}
+
             <TransitionSection />
             <div className="bg-background">
               <AboutSection />

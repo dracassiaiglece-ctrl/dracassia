@@ -4,34 +4,34 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Law Firm Premium Design System - Wine & Gold Palette */
+
 
 @layer base {
   :root {
-    /* Wine Dark Primary: #6a081d */
+
     --background: 348 87% 8%;
     --foreground: 40 20% 95%;
 
-    /* Cards/Sections with Wine Closed: #6a192a */
+
     --card: 348 64% 12%;
     --card-foreground: 40 20% 95%;
 
     --popover: 348 64% 10%;
     --popover-foreground: 40 20% 95%;
 
-    /* Primary: Elegant Gold #b47f4b */
+
     --primary: 30 42% 50%;
     --primary-foreground: 348 87% 8%;
 
-    /* Secondary: Wine Dark */
+
     --secondary: 348 87% 15%;
     --secondary-foreground: 40 20% 95%;
 
-    /* Muted */
+
     --muted: 348 40% 18%;
     --muted-foreground: 40 15% 70%;
 
-    /* Accent: Light Gold #b48567 */
+
     --accent: 22 39% 55%;
     --accent-foreground: 348 87% 8%;
 
@@ -44,26 +44,26 @@
 
     --radius: 0.5rem;
 
-    /* Wine variations */
+
     --wine-dark: 348 87% 23%;
     --wine-closed: 348 64% 26%;
     --wine-deep: 348 87% 8%;
-    
-    /* Gold variations */
+
+
     --gold-elegant: 30 42% 50%;
     --gold-light: 22 39% 55%;
     --gold-glow: 30 50% 60%;
 
-    /* Gradients */
+
     --gradient-wine: linear-gradient(135deg, hsl(348 87% 23%), hsl(348 64% 12%));
     --gradient-gold: linear-gradient(135deg, hsl(30 42% 50%), hsl(22 39% 55%));
     --gradient-overlay: linear-gradient(180deg, hsla(348, 87%, 8%, 0.7), hsla(348, 87%, 8%, 0.95));
 
-    /* Shadows */
+
     --shadow-elegant: 0 10px 40px -10px hsla(30, 42%, 50%, 0.3);
     --shadow-wine: 0 20px 60px -15px hsla(348, 87%, 8%, 0.8);
 
-    /* Sidebar */
+
     --sidebar-background: 348 87% 10%;
     --sidebar-foreground: 40 20% 95%;
     --sidebar-primary: 30 42% 50%;
@@ -191,7 +191,7 @@
   }
 }
 
-/* Animações */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

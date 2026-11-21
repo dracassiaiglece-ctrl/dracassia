@@ -43,7 +43,7 @@ const ProcessSection = () => {
     const cards = cardsRef.current;
     if (!section || !title || !cards) return;
 
-    // Animar título
+
     gsap.fromTo(
       title,
       { opacity: 0, y: 30 },
@@ -60,7 +60,7 @@ const ProcessSection = () => {
       }
     );
 
-    // Animar cards com stagger
+
     const cardElements = cards.querySelectorAll<HTMLElement>(".process-card");
     gsap.fromTo(
       cardElements,
@@ -94,7 +94,7 @@ const ProcessSection = () => {
 
   return (
     <section ref={sectionRef} className="section-padding bg-card relative overflow-hidden">
-      {/* Decorative Background */}
+
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 right-20 w-64 h-64 rounded-full bg-primary blur-3xl" />
@@ -123,17 +123,17 @@ const ProcessSection = () => {
               key={step.title}
               className="process-card group relative p-8 rounded-2xl bg-secondary/50 border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10"
             >
-              {/* Step Number */}
+
               <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-primary border-4 border-background flex items-center justify-center text-background font-bold text-lg">
                 {index + 1}
               </div>
 
-              {/* Icon */}
+
               <div className="w-16 h-16 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                 <step.icon className="w-8 h-8 text-primary" />
               </div>
 
-              {/* Content */}
+
               <h3 className="text-xl font-playfair font-semibold text-foreground mb-3">
                 {step.title}
               </h3>

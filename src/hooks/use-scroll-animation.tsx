@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Registrar o plugin ScrollTrigger
+
 gsap.registerPlugin(ScrollTrigger);
 
 interface UseScrollAnimationOptions {
@@ -27,13 +27,13 @@ export const useScrollAnimation = (options: UseScrollAnimationOptions = {}) => {
     const element = elementRef.current;
     if (!element) return;
 
-    // Configurar animação inicial
+
     gsap.set(element, {
       opacity: opacity,
       y: y,
     });
 
-    // Criar animação com ScrollTrigger
+
     const animation = gsap.to(element, {
       opacity: 1,
       y: 0,
@@ -61,7 +61,7 @@ export const useScrollAnimation = (options: UseScrollAnimationOptions = {}) => {
   return elementRef;
 };
 
-// Hook para animar múltiplos elementos com stagger
+
 export const useScrollStagger = (
   selector: string,
   options: UseScrollAnimationOptions = {}
@@ -82,13 +82,13 @@ export const useScrollStagger = (
     const elements = container.querySelectorAll<HTMLElement>(selector);
     if (elements.length === 0) return;
 
-    // Configurar animação inicial
+
     gsap.set(elements, {
       opacity: opacity,
       y: y,
     });
 
-    // Criar animação com ScrollTrigger e stagger
+
     const animation = gsap.to(elements, {
       opacity: 1,
       y: 0,

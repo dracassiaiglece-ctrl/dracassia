@@ -1,6 +1,6 @@
 const TransitionSection = () => {
   return (
-    <div 
+    <div
       className="relative w-full h-[250px] md:h-[350px] lg:h-[450px] pointer-events-none"
       style={{
         background:

@@ -1,4 +1,4 @@
-import logoImg from "@/assets/10.png";
+import logoImg from "@/assets/10.webp";
 
 interface LogoProps {
   className?: string;
@@ -32,15 +32,15 @@ const Logo = ({ className = "", showText = true, size = "md" }: LogoProps) => {
 
   return (
     <div className={`flex items-center ${s.gap} ${className}`}>
-      {/* Logo PNG */}
-      <img 
-        src={logoImg} 
-        alt="CI" 
+
+      <img
+        src={logoImg}
+        alt="CI"
         className={`${s.logo} w-auto object-contain brightness-0 invert`}
         decoding="async"
       />
 
-      {/* Texto */}
+
       {showText && (
         <div className="flex flex-col leading-tight">
           <span className={`${s.name} font-playfair font-semibold tracking-[0.1em] text-white`}>

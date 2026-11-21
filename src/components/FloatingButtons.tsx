@@ -33,7 +33,7 @@ const FloatingButtons = () => {
   };
 
   const openWhatsApp = () => {
-    const phoneNumber = "5571993523075"; // Número do WhatsApp (sem + e espaços)
+    const phoneNumber = "5571993523075";
     const message = encodeURIComponent(
       "Olá! Gostaria de mais informações sobre os serviços jurídicos."
     );
@@ -87,7 +87,7 @@ const FloatingButtons = () => {
         )}
       </AnimatePresence>
 
-      {/* Botão Voltar ao Topo - aparece ao rolar */}
+
       <AnimatePresence>
         {showScrollTop && (
           <motion.button

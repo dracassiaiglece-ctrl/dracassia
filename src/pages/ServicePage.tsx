@@ -13,7 +13,7 @@ const ServicePage = () => {
   const navigate = useNavigate();
   const service = slug ? getServiceBySlug(slug) : undefined;
 
-  // Scroll to top quando a página carregar
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [slug]);
@@ -51,11 +51,11 @@ const ServicePage = () => {
   const handleBackToAreas = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     navigate("/");
-    // Aguardar a navegação e renderização antes de fazer scroll
+
     setTimeout(() => {
       const areasSection = document.querySelector("#areas");
       if (areasSection) {
-        // Calcular offset para considerar o header fixo
+
         const headerOffset = 100;
         const elementPosition = areasSection.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -136,9 +136,9 @@ const ServicePage = () => {
       <main className="min-h-screen bg-wine-deep">
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-wine-deep" />
-          
-          <div 
-            className="absolute top-0 left-0 right-0 h-40 pointer-events-none" 
+
+          <div
+            className="absolute top-0 left-0 right-0 h-40 pointer-events-none"
             style={{
               background: "linear-gradient(to bottom, hsl(var(--background) / 0.9), transparent)",
             }}

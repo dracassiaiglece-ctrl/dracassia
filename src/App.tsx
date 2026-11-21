@@ -32,7 +32,7 @@ const App = () => (
             <Route path="/atuacao-multidisciplinar/:slug" element={<ServiceDetail />} />
             <Route path="/servicos/:slug" element={<ServicePage />} />
             <Route path="/privacidade" element={<PrivacyPolicy />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

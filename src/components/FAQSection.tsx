@@ -73,18 +73,18 @@ const FAQSection = () => {
 
   return (
     <section id="faq" className="relative py-20 md:py-28 overflow-hidden">
-      {/* Background */}
+
       <div className="absolute inset-0 bg-wine-deep" />
-      
-      {/* Gradiente sutil no topo */}
-      <div 
-        className="absolute top-0 left-0 right-0 h-32 pointer-events-none" 
+
+
+      <div
+        className="absolute top-0 left-0 right-0 h-32 pointer-events-none"
         style={{
           background: "linear-gradient(to bottom, hsl(var(--background) / 0.9), transparent)",
         }}
       />
 
-      {/* Elemento decorativo sutil */}
+
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.03] pointer-events-none"
         style={{
           background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)",
@@ -99,7 +99,7 @@ const FAQSection = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-4xl mx-auto"
         >
-          {/* Badge */}
+
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="h-px w-8 md:w-12 bg-primary/60" />
             <span className="text-primary/90 text-[10px] md:text-xs font-medium tracking-[0.25em] uppercase">
@@ -108,19 +108,19 @@ const FAQSection = () => {
             <div className="h-px w-8 md:w-12 bg-primary/60" />
           </div>
 
-          {/* Título */}
+
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-playfair font-bold text-center text-foreground mb-4 md:mb-6 leading-tight">
             Perguntas{" "}
             <span className="text-primary">Frequentes</span>
           </h2>
 
-          {/* Subtítulo */}
+
           <p className="text-sm md:text-base lg:text-lg text-muted-foreground text-center mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed">
-            Encontre respostas para as principais dúvidas sobre Direito de Família e Sucessões. 
+            Encontre respostas para as principais dúvidas sobre Direito de Família e Sucessões.
             Se sua pergunta não estiver aqui, entre em contato conosco.
           </p>
 
-          {/* Lista de FAQs */}
+
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -181,7 +181,7 @@ const FAQSection = () => {
             })}
           </motion.div>
 
-          {/* CTA no final */}
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

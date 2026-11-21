@@ -48,7 +48,7 @@ const Footer = () => {
     <footer ref={footerRef} className="relative z-20 bg-wine-deep border-t border-white/10">
       <div className="container-custom px-4 md:px-8 py-16">
         <div className="footer-content grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Logo & Description */}
+
           <div className="lg:col-span-2">
             <div className="mb-6">
               <Logo showText={true} />
@@ -63,7 +63,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
+
           <div>
             <h4 className="font-playfair font-semibold text-foreground mb-6">
               Links Rápidos
@@ -92,7 +92,7 @@ const Footer = () => {
                         }
                         return;
                       }
-                      // Se não estiver na página inicial, navegar para lá primeiro
+
                       if (location.pathname !== "/") {
                         navigate("/");
                         setTimeout(() => {
@@ -108,7 +108,7 @@ const Footer = () => {
                           }
                         }, 200);
                       } else {
-                        // Se já estiver na página inicial, apenas fazer scroll
+
                         const element = document.querySelector(link.href);
                         if (element) {
                           const headerOffset = 100;
@@ -130,7 +130,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
+
           <div>
             <h4 className="font-playfair font-semibold text-foreground mb-6">
               Contato
@@ -186,7 +186,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+
       <div className="border-t border-white/10">
         <div className="container-custom px-4 md:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">

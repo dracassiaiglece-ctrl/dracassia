@@ -19,7 +19,7 @@ interface TeamMember {
   extraAreas?: string[];
 }
 
-// Ordenado alfabeticamente pelo primeiro nome
+
 const teamMembers: TeamMember[] = [
   {
     name: "Glória Dutra",
@@ -118,10 +118,10 @@ const TeamSection = () => {
     },
   };
 
-  // Card component reutilizável
+
   const TeamCard = ({ member }: { member: TeamMember }) => (
     <div className="relative h-full bg-wine-deep border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 group/card flex flex-col">
-      {/* Foto */}
+
       <div className="relative aspect-[3/4] min-h-[280px] sm:min-h-[320px] md:min-h-[300px] lg:min-h-[320px] overflow-hidden">
         <img
           src={member.image}
@@ -130,10 +130,10 @@ const TeamSection = () => {
           loading="lazy"
           decoding="async"
         />
-        {/* Overlay gradiente mais suave */}
+
         <div className="absolute inset-0 bg-gradient-to-t from-wine-deep via-wine-deep/15 to-transparent" />
-        
-        {/* Badge de áreas no canto */}
+
+
         <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
           {member.areas.slice(0, 2).map((area, areaIndex) => (
             <span
@@ -146,14 +146,14 @@ const TeamSection = () => {
         </div>
       </div>
 
-      {/* Conteúdo */}
+
       <div className="p-5 md:p-6 flex flex-col flex-grow">
-        {/* Nome */}
+
         <h3 className="text-lg md:text-xl font-playfair font-bold text-foreground mb-3 group-hover/card:text-primary transition-colors duration-500 leading-tight">
           {member.name}
         </h3>
 
-        {/* Universidade */}
+
         <div className="flex items-start gap-2.5 mb-3">
           <GraduationCap className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
           <p className="text-xs text-muted-foreground leading-relaxed">
@@ -161,7 +161,7 @@ const TeamSection = () => {
           </p>
         </div>
 
-        {/* Especializações */}
+
         <div className="space-y-1.5 mb-4 flex-grow">
           {member.specializations.map((spec, specIndex) => (
             <div key={specIndex} className="flex items-start gap-2">
@@ -207,7 +207,7 @@ const TeamSection = () => {
           </div>
         )}
 
-        {/* OAB se tiver */}
+
         {member.oab && (
           <div className="pt-3 border-t border-primary/20">
             <div className="flex items-center gap-2">
@@ -220,7 +220,7 @@ const TeamSection = () => {
         )}
       </div>
 
-      {/* Linha decorativa inferior */}
+
       <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/0 to-transparent group-hover/card:via-primary transition-all duration-500" />
     </div>
   );
@@ -232,22 +232,22 @@ const TeamSection = () => {
       ref={sectionRef}
       className="relative w-full overflow-hidden py-20 md:py-28"
     >
-      {/* Background */}
+
       <div className="absolute inset-0 bg-wine-deep" />
-      
-      {/* Esfumado no topo para transição suave */}
-      <div 
-        className="absolute top-0 left-0 right-0 h-[100px] md:h-[150px] pointer-events-none" 
+
+
+      <div
+        className="absolute top-0 left-0 right-0 h-[100px] md:h-[150px] pointer-events-none"
         style={{
           background:
             "linear-gradient(to bottom, transparent 0%, hsl(var(--background) / 0.5) 30%, hsl(var(--background) / 0.8) 60%, hsl(var(--background)) 100%)",
         }}
       />
 
-      {/* Conteúdo */}
+
       <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-16">
-        {/* Título */}
-        <motion.div 
+
+        <motion.div
           className="text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

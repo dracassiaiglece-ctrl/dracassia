@@ -12,34 +12,34 @@ const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Formatar mensagem para email
+
+
     const emailBody = `De: ${formData.name}\n` +
       `Telefone: ${formData.phone}\n` +
       `E-mail: ${formData.email}\n\n` +
       `Mensagem:\n${formData.message}`;
-    
+
     const subject = encodeURIComponent("Contato através do site - Cássia Iglece Advocacia");
     const body = encodeURIComponent(emailBody);
-    
-    // Tentar abrir o app de email
+
+
     const mailtoLink = `mailto:cassiaiglece.adv@gmail.com?subject=${subject}&body=${body}`;
-    
-    // Criar um link temporário para tentar abrir o email
+
+
     const link = document.createElement('a');
     link.href = mailtoLink;
     link.style.display = 'none';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
-    // Após tentar abrir o email, oferecer WhatsApp como alternativa
-    // (o usuário pode escolher se o email não abrir)
+
+
+
     setTimeout(() => {
       const useWhatsApp = window.confirm(
         "Se o aplicativo de email não abriu, deseja enviar a mensagem pelo WhatsApp?"
       );
-      
+
       if (useWhatsApp) {
         const whatsappMessage = encodeURIComponent(
           `*Contato através do site*\n\n` +
@@ -48,7 +48,7 @@ const ContactForm = () => {
           `E-mail: ${formData.email}\n\n` +
           `Mensagem:\n${formData.message}`
         );
-        
+
         const opened = window.open(`https://wa.me/5571993523075?text=${whatsappMessage}`, "_blank", "noopener,noreferrer");
         if (opened) opened.opener = null;
       }
@@ -65,18 +65,18 @@ const ContactForm = () => {
 
   return (
     <section id="contato" className="relative py-20 md:py-28 overflow-hidden">
-      {/* Background */}
+
       <div className="absolute inset-0 bg-wine-deep" />
-      
-      {/* Gradiente sutil no topo */}
-      <div 
-        className="absolute top-0 left-0 right-0 h-32 pointer-events-none" 
+
+
+      <div
+        className="absolute top-0 left-0 right-0 h-32 pointer-events-none"
         style={{
           background: "linear-gradient(to bottom, hsl(var(--background) / 0.9), transparent)",
         }}
       />
 
-      {/* Elemento decorativo sutil */}
+
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.03] pointer-events-none"
         style={{
           background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)",
@@ -91,7 +91,7 @@ const ContactForm = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-6xl mx-auto"
         >
-          {/* Badge */}
+
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="h-px w-8 md:w-12 bg-primary/60" />
             <span className="text-primary/90 text-[10px] md:text-xs font-medium tracking-[0.25em] uppercase">
@@ -100,20 +100,20 @@ const ContactForm = () => {
             <div className="h-px w-8 md:w-12 bg-primary/60" />
           </div>
 
-          {/* Título */}
+
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-playfair font-bold text-center text-foreground mb-4 md:mb-6 leading-tight">
             Entre em contato e{" "}
             <span className="text-primary">iremos te ajudar</span>
           </h2>
 
-          {/* Subtítulo */}
+
           <p className="text-sm md:text-base lg:text-lg text-muted-foreground text-center mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed">
-            Preencha o formulário ou utilize nossos canais diretos de atendimento. 
+            Preencha o formulário ou utilize nossos canais diretos de atendimento.
             Responderemos o mais breve possível.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            {/* Informações de Contato */}
+
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -121,7 +121,7 @@ const ContactForm = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-8"
             >
-              {/* Telefone/WhatsApp */}
+
               <div className="flex items-start gap-4">
                 <Phone className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                 <div className="flex-1">
@@ -137,7 +137,7 @@ const ContactForm = () => {
                 </div>
               </div>
 
-              {/* E-mail */}
+
               <div className="flex items-start gap-4">
                 <Mail className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                 <div className="flex-1">
@@ -153,7 +153,7 @@ const ContactForm = () => {
                 </div>
               </div>
 
-              {/* Horário */}
+
               <div className="flex items-start gap-4">
                 <Clock className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                 <div className="flex-1">
@@ -166,7 +166,7 @@ const ContactForm = () => {
                 </div>
               </div>
 
-              {/* Trust Badges */}
+
               <div className="pt-6 border-t border-white/10">
                 <div className="flex flex-wrap gap-3">
                   {["Atendimento Sigiloso", "Primeira Consulta Orientativa", "Resposta Rápida"].map(
@@ -183,7 +183,7 @@ const ContactForm = () => {
                 </div>
               </div>
 
-              {/* Botão WhatsApp Direto */}
+
               <button
                 onClick={handleWhatsAppDirect}
                 className="w-full group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-gold-light text-wine-deep font-semibold text-sm md:text-base tracking-wide px-6 py-4 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_hsl(var(--primary)/0.35)] hover:-translate-y-0.5"
@@ -193,7 +193,7 @@ const ContactForm = () => {
               </button>
             </motion.div>
 
-            {/* Formulário */}
+
             <motion.form
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}

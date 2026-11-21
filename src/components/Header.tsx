@@ -42,10 +42,10 @@ const Header = () => {
   ];
 
   const scrollToSection = (href: string) => {
-    // Se não estiver na página inicial, navegar para lá primeiro
+
     if (location.pathname !== "/") {
       navigate("/");
-      // Aguardar a navegação e renderização antes de fazer scroll
+
       setTimeout(() => {
         const element = document.querySelector(href);
         if (element) {
@@ -59,7 +59,7 @@ const Header = () => {
         }
       }, 200);
     } else {
-      // Se já estiver na página inicial, apenas fazer scroll
+
       const element = document.querySelector(href);
       if (element) {
         const headerOffset = 100;
@@ -76,21 +76,21 @@ const Header = () => {
 
   return (
     <>
-      {/* Top Bar */}
+
       <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-10 opacity-100"
       }`}>
         <div className="h-full bg-background/90 backdrop-blur-sm border-b border-primary/10">
           <div className="container-custom h-full px-6 md:px-8 flex items-center justify-center md:justify-end gap-6 md:gap-8">
-            <a 
-              href="tel:+5571993523075" 
+            <a
+              href="tel:+5571993523075"
               className="flex items-center gap-2 text-[11px] sm:text-xs text-white/50 hover:text-primary transition-colors group whitespace-nowrap"
             >
               <Phone className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
               <span>(71) 9 9352-3075</span>
             </a>
-            <a 
-              href="mailto:cassiaiglece.adv@gmail.com" 
+            <a
+              href="mailto:cassiaiglece.adv@gmail.com"
               className="hidden md:flex items-center gap-2 text-xs text-white/50 hover:text-primary transition-colors group min-w-0"
             >
               <Mail className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
@@ -100,7 +100,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Main Header */}
+
       <header
         className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
@@ -110,7 +110,7 @@ const Header = () => {
       >
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20 px-6 md:px-8">
-            {/* Logo */}
+
             <a
               href="/"
               onClick={(e) => {
@@ -129,7 +129,7 @@ const Header = () => {
               <Logo />
             </a>
 
-            {/* Desktop Navigation */}
+
             <nav className="hidden lg:flex items-center">
               {navItems.map((item, index) => (
                 <a
@@ -151,13 +151,13 @@ const Header = () => {
                   className="relative px-5 py-2 text-[13px] text-white/60 hover:text-white transition-all duration-300 font-medium tracking-wide group"
                 >
                   <span className="relative z-10">{item.label}</span>
-                  {/* Underline animado */}
+
                   <span className="absolute bottom-1 left-5 right-5 h-px bg-gradient-to-r from-primary to-primary/50 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 </a>
               ))}
             </nav>
 
-            {/* CTA Desktop - Botão elegante */}
+
             <a
               href="https://wa.me/5571993523075"
               target="_blank"
@@ -175,7 +175,7 @@ const Header = () => {
               </div>
             </a>
 
-            {/* Mobile Menu Button */}
+
             <button
               className="lg:hidden relative w-10 h-10 flex items-center justify-center text-foreground"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -197,19 +197,19 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Mobile Navigation Fullscreen */}
+
       <div
         className={`lg:hidden fixed inset-0 z-40 transition-all duration-500 ${
           isMobileMenuOpen ? "visible" : "invisible"
         }`}
       >
-        <div 
+        <div
           className={`absolute inset-0 bg-black/95 backdrop-blur-xl transition-opacity duration-500 ${
             isMobileMenuOpen ? "opacity-100" : "opacity-0"
           }`}
           onClick={() => setIsMobileMenuOpen(false)}
         />
-        
+
         <nav className="relative h-full flex flex-col items-center justify-center gap-3">
           {navItems.map((item, index) => (
             <a
@@ -229,8 +229,8 @@ const Header = () => {
                 }, 0);
               }}
               className={`relative text-2xl sm:text-3xl font-playfair text-white/70 hover:text-primary py-3 transition-all duration-500 group ${
-                isMobileMenuOpen 
-                  ? "opacity-100 translate-y-0" 
+                isMobileMenuOpen
+                  ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-4"
               }`}
               style={{ transitionDelay: isMobileMenuOpen ? `${index * 80}ms` : "0ms" }}
@@ -239,11 +239,11 @@ const Header = () => {
               <span className="absolute -bottom-1 left-0 right-0 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
             </a>
           ))}
-          
-          <div 
+
+          <div
             className={`mt-10 transition-all duration-500 ${
-              isMobileMenuOpen 
-                ? "opacity-100 translate-y-0" 
+              isMobileMenuOpen
+                ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: isMobileMenuOpen ? `${navItems.length * 80}ms` : "0ms" }}
@@ -259,7 +259,7 @@ const Header = () => {
             </a>
           </div>
 
-          <div 
+          <div
             className={`absolute bottom-10 left-0 right-0 flex flex-col items-center gap-3 transition-all duration-500 ${
               isMobileMenuOpen ? "opacity-100" : "opacity-0"
             }`}

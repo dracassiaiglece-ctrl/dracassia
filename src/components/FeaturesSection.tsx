@@ -61,9 +61,9 @@ const HonorariosSection = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
-  
 
-  // Removido GSAP para evitar conflitos com Framer Motion
+
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -95,25 +95,25 @@ const HonorariosSection = () => {
       ref={sectionRef}
       className="relative min-h-screen w-full overflow-hidden py-24 md:py-32"
     >
-      {/* Background com o mesmo tom do esfumado do bottom da AboutSection */}
+
       <div className="absolute inset-0 bg-wine-deep" />
-      
-      {/* Esfumado no topo para transição suave */}
-      <div 
-        className="absolute top-0 left-0 right-0 h-[150px] md:h-[200px] pointer-events-none" 
+
+
+      <div
+        className="absolute top-0 left-0 right-0 h-[150px] md:h-[200px] pointer-events-none"
         style={{
           background:
             "linear-gradient(to bottom, transparent 0%, hsl(var(--background) / 0.25) 15%, hsl(var(--background) / 0.5) 30%, hsl(var(--background) / 0.75) 50%, hsl(var(--background) / 0.9) 70%, hsl(var(--background)) 100%)",
         }}
       />
-      
-      {/* Linha decorativa sutil */}
+
+
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent z-10" />
 
-      {/* Conteúdo */}
+
       <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-16 py-12">
-        {/* Título com animação sofisticada */}
-        <motion.div 
+
+        <motion.div
           className="text-center mb-16 md:mb-20"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -124,7 +124,7 @@ const HonorariosSection = () => {
             ref={titleRef}
             className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-foreground mb-6 leading-tight"
           >
-            <motion.span 
+            <motion.span
               className="inline-block"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -133,7 +133,7 @@ const HonorariosSection = () => {
             >
               Áreas
             </motion.span>{" "}
-            <motion.span 
+            <motion.span
               className="inline-block text-primary"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -142,7 +142,7 @@ const HonorariosSection = () => {
             >
               de
             </motion.span>{" "}
-            <motion.span 
+            <motion.span
               className="inline-block text-primary"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -152,7 +152,7 @@ const HonorariosSection = () => {
               Atuação
             </motion.span>
           </h2>
-          <motion.p 
+          <motion.p
             ref={subtitleRef}
             className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -164,7 +164,7 @@ const HonorariosSection = () => {
           </motion.p>
         </motion.div>
 
-        {/* Cards de Áreas com Framer Motion */}
+
         <motion.div
           ref={cardsRef}
           variants={containerVariants}
@@ -181,33 +181,33 @@ const HonorariosSection = () => {
                 variants={cardVariants}
                 className="group relative"
               >
-                {/* Card principal - minimalista e elegante */}
+
                 <div className="relative h-full bg-wine-deep border border-white/10 rounded-xl p-8 md:p-10 transition-all duration-500 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 overflow-hidden group/card">
-                  {/* Número da área com animação de hover */}
+
                   <div className="absolute top-6 right-6 transition-all duration-500 group-hover/card:scale-110 group-hover/card:-translate-y-1">
                     <div className="text-5xl md:text-6xl font-playfair font-bold text-primary/10 group-hover/card:text-primary/100 transition-all duration-500 relative">
                       {area.number}
-                      {/* Brilho sutil no hover */}
+
                       <div className="absolute inset-0 text-primary/0 group-hover/card:text-primary/20 blur-xl transition-all duration-500">
                         {area.number}
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Linha decorativa que aparece no hover */}
+
+
                   <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/0 to-transparent group-hover/card:via-primary/40 transition-all duration-500" />
-                  
-                  {/* Overlay sutil no hover */}
+
+
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover/card:from-primary/5 group-hover/card:via-primary/3 group-hover/card:to-primary/5 transition-all duration-500 pointer-events-none rounded-xl" />
 
                   <div className="relative z-10">
-                    {/* Header do Card */}
+
                     <div className="flex items-start gap-4 mb-6">
-                      {/* Ícone minimalista com animação no hover */}
+
                       <div className="flex-shrink-0 p-3 rounded-lg bg-primary/10 border border-primary/20 group-hover/card:bg-primary/20 group-hover/card:border-primary/40 group-hover/card:scale-110 transition-all duration-500">
                         <Icon className="w-6 h-6 text-primary group-hover/card:text-primary transition-colors duration-500" strokeWidth={2} />
                       </div>
-                      
+
                       <div className="flex-1">
                         <div className="text-xs font-medium text-primary/70 mb-2 uppercase tracking-wider">
                           Área {area.number}
@@ -218,12 +218,12 @@ const HonorariosSection = () => {
                       </div>
                     </div>
 
-                    {/* Descrição */}
+
                     <p className="text-muted-foreground leading-relaxed mb-8 text-sm md:text-base">
                       {area.description}
                     </p>
 
-                    {/* Lista de Serviços */}
+
                     <div className="space-y-3 pt-6 border-t border-white/10 group-hover/card:border-primary/20 transition-colors duration-500">
                       {area.services.map((service, serviceIndex) => (
                         <div
